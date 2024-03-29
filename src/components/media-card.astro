@@ -23,9 +23,11 @@ const El = href ? 'a' : 'span';
 		box-shadow: var(--sl-shadow-sm);
 		width: 100%;
 	}
-	a:hover {
-		border-color: var(--sl-color-gray-2);
-		background-color: var(--sl-color-gray-7, var(--sl-color-gray-6));
+	
+	.media-card:hover {
+		transition-timing-function: cubic-bezier(0,0,.2,1);
+		transform: scale(1.03);
+		transition: transform 0.3s ease;
 	}
 
 	.media {
