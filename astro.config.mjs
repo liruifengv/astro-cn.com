@@ -7,7 +7,7 @@ export default defineConfig({
 		starlight({
 			title: 'Astro 中文网站 ShowCase',
 			social: {
-				github: 'https://github.com/withastro/starlight',
+				github: 'https://github.com/liruifengv/astro-site-showcase-cn',
 			},
       pagination: false,
       pagefind: false,
