@@ -1,0 +1,18 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { Aside } from '@astrojs/starlight/components';
+import ShowcaseSites from '../components/showcase-sites.astro';
+
+const title = "ShowCase"
+const description = "Astro 中文网站 ShowCase，展示了一些使用 Astro 构建的中文网站。"
+---
+
+<StarlightPage frontmatter={{ title: title, description: description, template: 'splash' }}>
+  <Aside type="tip" title="添加你自己的！">
+    你是否使用 Astro 或 Starlight 构建过网站？
+    创建一个 PR 来添加链接到此页面！
+  </Aside>
+
+  <ShowcaseSites />
+
+</StarlightPage>
