@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "preinstall": "npx only-allow pnpm",
+    "biome": "biome",
     "format": "biome format src --write",
     "lint": "biome lint src",
     "check": "biome check --apply src"
