@@ -1,9 +1,11 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
+const site = 'https://astro-cn.com/';
+
 // https://astro.build/config
 export default defineConfig({
-  site: "https://astro-showcase-cn.zeabur.app",
+  site,
 	integrations: [
 		starlight({
 			title: 'Astro 中文网站 ShowCase',
@@ -11,6 +13,14 @@ export default defineConfig({
 				github: 'https://github.com/liruifengv/astro-site-showcase-cn',
 			},
       head: [
+				{
+					tag: 'meta',
+					attrs: { property: 'og:image', content: site + 'og.png?v=1' },
+				},
+				{
+					tag: 'meta',
+					attrs: { property: 'twitter:image', content: site + 'og.png?v=1' },
+				},
         {
           tag: 'script',
           attrs: {

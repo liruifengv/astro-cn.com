@@ -8,7 +8,7 @@ User-agent: *
 Allow: /
 
 Sitemap: ${
-	new URL("sitemap-index.xml", "https://astro-showcase-cn.zeabur.app").href
+	new URL("sitemap-index.xml", "https://astro-cn.com").href
 }
 `.trim();
 
