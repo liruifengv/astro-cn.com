@@ -1,0 +1,30 @@
+name: Code quality
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+        with:
+          version: latest
+      - name: Run Biome
+        run: biome ci src
+      - name: Install PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: ^7.0
+      - name: Install Deps
+        run: pnpm -r install --no-frozen-lockfile
+      - name: Test Build
+        run: pnpm -r build

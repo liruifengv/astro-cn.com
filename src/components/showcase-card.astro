@@ -1,7 +1,7 @@
 ---
-import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
-import MediaCard from './media-card.astro';
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import MediaCard from "./media-card.astro";
 
 interface Props {
 	href: string;
@@ -11,11 +11,13 @@ interface Props {
 const { href, title } = Astro.props;
 
 const thumbnails = import.meta.glob<{ default: ImageMetadata }>(
-	'../assets/showcase/*{.png,.jpg,.jpeg,.webp,.avif}'
+	"../assets/showcase/*{.png,.jpg,.jpeg,.webp,.avif}",
 );
 const thumbnail = thumbnails[`../assets/showcase/${Astro.props.thumbnail}`];
 if (!thumbnail) {
-	throw new Error(`Could not resolve showcase thumbnail: ${Astro.props.thumbnail}`);
+	throw new Error(
+		`Could not resolve showcase thumbnail: ${Astro.props.thumbnail}`,
+	);
 }
 const src = (await thumbnail()).default;
 ---
