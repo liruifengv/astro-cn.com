@@ -3,12 +3,31 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://astro-showcase-cn.zeabur.app",
 	integrations: [
 		starlight({
 			title: 'Astro 中文网站 ShowCase',
 			social: {
 				github: 'https://github.com/liruifengv/astro-site-showcase-cn',
 			},
+      head: [
+        {
+          tag: 'script',
+          attrs: {
+            src: 'https://www.googletagmanager.com/gtag/js?id=G-E8HJ681XLY',
+            async: true
+          },
+        },
+        {
+          tag: 'script',
+          content: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-E8HJ681XLY');
+          `
+        }
+      ],
       pagination: false,
       pagefind: false,
       customCss: ['./src/styles/custom.css'],
