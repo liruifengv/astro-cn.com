@@ -7,9 +7,7 @@ Disallow:
 User-agent: *
 Allow: /
 
-Sitemap: ${
-	new URL("sitemap-index.xml", "https://astro-cn.com").href
-}
+Sitemap: ${new URL("sitemap-index.xml", "https://astro-cn.com").href}
 `.trim();
 
 export const GET: APIRoute = () =>
