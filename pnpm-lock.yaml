@@ -9,16 +9,16 @@ dependencies:
     specifier: ^0.5.10
     version: 0.5.10(typescript@5.4.3)
   '@astrojs/starlight':
-    specifier: ^0.21.2
-    version: 0.21.2(astro@4.5.12)
+    specifier: ^0.21.3
+    version: 0.21.3(astro@4.5.12)
   '@astrojs/starlight-tailwind':
     specifier: ^2.0.1
-    version: 2.0.1(@astrojs/starlight@0.21.2)(@astrojs/tailwind@5.1.0)(tailwindcss@3.4.3)
+    version: 2.0.1(@astrojs/starlight@0.21.3)(@astrojs/tailwind@5.1.0)(tailwindcss@3.4.3)
   '@astrojs/tailwind':
     specifier: ^5.1.0
     version: 5.1.0(astro@4.5.12)(tailwindcss@3.4.3)
   astro:
-    specifier: ^4.3.5
+    specifier: ^4.5.12
     version: 4.5.12(typescript@5.4.3)
   sharp:
     specifier: ^0.32.5
@@ -172,20 +172,20 @@ packages:
       zod: 3.22.4
     dev: false
 
-  /@astrojs/starlight-tailwind@2.0.1(@astrojs/starlight@0.21.2)(@astrojs/tailwind@5.1.0)(tailwindcss@3.4.3):
+  /@astrojs/starlight-tailwind@2.0.1(@astrojs/starlight@0.21.3)(@astrojs/tailwind@5.1.0)(tailwindcss@3.4.3):
     resolution: {integrity: sha512-niMgFcR7NHcsBVy8UAN3F2gqhmoN5v83st5Hu4YzvUL+6SNwjQmIipXppXdN9+iVneRjPr6PLGzDfI+wnjSBWQ==}
     peerDependencies:
       '@astrojs/starlight': '>=0.9.0'
       '@astrojs/tailwind': ^5.0.0
       tailwindcss: ^3.3.3
     dependencies:
-      '@astrojs/starlight': 0.21.2(astro@4.5.12)
+      '@astrojs/starlight': 0.21.3(astro@4.5.12)
       '@astrojs/tailwind': 5.1.0(astro@4.5.12)(tailwindcss@3.4.3)
       tailwindcss: 3.4.3
     dev: false
 
-  /@astrojs/starlight@0.21.2(astro@4.5.12):
-    resolution: {integrity: sha512-ziDfrbhBjw/+HwMITk6yz7SbkQKQJZY9GlaPHntSPq4kYs+b2ru3toIxj2l3T9LUFtUpNWHkj+C1wJTmfLZfaw==}
+  /@astrojs/starlight@0.21.3(astro@4.5.12):
+    resolution: {integrity: sha512-SvIKB8ECR+RhYdTg3bKsTL2e5Yac75eTatfOMGjkp3ced9Bx34xXMSURuKx/AHBWo1X/+WoWzKT3Y3d2y7kkVg==}
     peerDependencies:
       astro: ^4.2.7
     dependencies:
