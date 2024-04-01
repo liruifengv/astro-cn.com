@@ -8,7 +8,7 @@ export default defineConfig({
   site,
 	integrations: [
 		starlight({
-			title: 'Astro 中文网站 ShowCase',
+			title: 'Astro 中文网站 Showcase',
 			social: {
 				github: 'https://github.com/liruifengv/astro-site-showcase-cn',
 			},
@@ -43,7 +43,7 @@ export default defineConfig({
       customCss: ['./src/styles/custom.css'],
 			sidebar: [
 				{
-					label: 'ShowCase',
+					label: 'Showcase',
 					link: '/showcase/'
 				},
 			],

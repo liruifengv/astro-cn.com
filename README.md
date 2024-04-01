@@ -1,4 +1,4 @@
-# Astro 中文网站 ShowCase
+# Astro 中文网站 Showcase
 
 [![Built with Astro](./public/v2/built-with-astro/small.svg)](https://astro.build)
 [![Built with Astro](./public/v2/built-with-starlight/small.svg)](https://starlight.astro.build)
@@ -17,7 +17,7 @@
 | `pnpm run preview`         | 本地预览     |
 
 ## 添加 Showcase
-用 Astro 或 Starlight 构建过中文网站？欢迎添加 ShowCase!
+用 Astro 或 Starlight 构建过中文网站？欢迎添加 Showcase!
 
 1. Fork 此仓库，在你的[本地运行](#-commands)。
 
