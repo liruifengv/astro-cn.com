@@ -12,6 +12,7 @@ export default defineConfig({
 			social: {
 				github: 'https://github.com/liruifengv/astro-site-showcase-cn',
 			},
+      favicon: '/images/favicon.svg',
       head: [
 				{
 					tag: 'meta',
