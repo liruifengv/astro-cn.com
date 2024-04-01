@@ -1,35 +1,10 @@
 ---
 import FluidGrid from "./fluid-grid.astro";
 import Card from "./showcase-card.astro";
+
+import { sites } from "../sites";
 ---
 
 <FluidGrid minColumnWidth="18rem">
-	<Card title="liruifengv.com" href="https://liruifengv.com" thumbnail="liruifengv.com.png" />
-	<Card title="captainofphb.me" href="https://captainofphb.me" thumbnail="captainofphb.me.png" />
-  <Card title="Sehnsucht" href="https://blog.sehnsucht.top" thumbnail="blog.sehnsucht.top.png" />
-  <Card title="Kai's blog" href="https://kaiyi.cool/" thumbnail="kaiyi.cool.png" />
-  <Card title="Mikan's Home" href="https://blog.bangdream.moe" thumbnail="blog.bangdream.moe.png" />
-  <Card title="yuhang.ch" href="https://yuhang.ch" thumbnail="yuhang.ch.png" />
-	<Card title="blog.pakchoi.opscat.cn" href="https://blog.pakchoi.opscat.cn" thumbnail="blog.pakchoi.opscat.cn.png" />
-  <Card title="blog.asyncx.top" href="https://blog.asyncx.top" thumbnail="blog.asyncx.top.png" />
-  <Card title="四畳半のへや" href="https://blog.moeyua.com" thumbnail="blog.moeyua.com.png" />
-  <Card title='Bruce の Site' href="https://brucesong.xyz" thumbnail="brucesong.xyz.png" />
-  <Card title="左子祯" href="https://zuozizhen.com" thumbnail="zuozizhen.com.png" />
-  <Card title="devlike.top" href="https://devlike.top" thumbnail="devlike.top.png" />
-  <Card title="Licodeao's Blog" href="https://licodeao.netlify.app" thumbnail="licodeao.netlify.app.png" />
-  <Card title="lolo洛明" href='https://blog.luoming.space' thumbnail='blog.luoming.space.png' />
-  <Card title="Volare's blog" href="https://hanzhen.wang" thumbnail="hanzhen.wang.png" />
-  <Card title="超级小镇 · 刘俊" href="https://super.town" thumbnail="super.town.png" />
-  <Card title="面条实验室" href="https://mt.ci" thumbnail="mt.ci.png" />
-  <Card title="chi.miantiao.me" href="https://chi.miantiao.me" thumbnail="chi.miantiao.me.png" />
-  <Card title="huyikai.xyz" href="https://huyikai.xyz" thumbnail="huyikai.xyz.png" />
-  <Card title="File Renamer Online" href="https://renamer.forth.ink" thumbnail="renamer.forth.ink.png" />
-  <Card title="ssshooter.com" href="https://ssshooter.com" thumbnail="ssshooter.com.png" />
-  <Card title="JoeSay" href="https://joesay.pages.dev" thumbnail="joesay.pages.dev.png" />  
-  <Card title="小付同学的开发日常" href="https://blog.xiaozi.cc" thumbnail="blog.xiaozi.cc.png" />  
-  <Card title="Anime Garden" href="https://garden.onekuma.cn" thumbnail="garden.onekuma.cn.png" />
-  <Card title="龙场茶室" href="https://blog.peterchen97.cn" thumbnail="blog.peterchen97.cn.png" />
-  <Card title="人生現役" href="https://blog.tianpei.cool" thumbnail="blog.tianpei.cool.png" />
-  <Card title="Nin3's Blog" href="https://nin3-lee.netlify.app/" thumbnail="nin3-lee.netlify.app.png" />
-  <Card title="小羊molly" href="https://mollypan.tech" thumbnail="mollypan.tech.png" />
+  { sites.map(site => <Card title={site.title} href={site.href} thumbnail={site.thumbnail}></Card>) }
 </FluidGrid>
