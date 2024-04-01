@@ -35,9 +35,9 @@
 ```diff
 const sites: Site[] = [
   // ...
-  { title: 'Example', href: 'https://example.com', thumbnail: 'example.com.png' },
-  { title: 'Last Example', href: 'https://example.org', thumbnail: 'example.org.png' },
-+ { title: '你的网站', href: 'https://example.com', thumbnail: 'example.com.png' },
+  { title: "Example", href: "https://example.com", thumbnail: "example.com.png" },
+  { title: "Last Example", href: "https://example.org", thumbnail: "example.org.png" },
++ { title: "你的网站", href: "https://example.com", thumbnail: "example.com.png" },
 ]
 ```
 
