@@ -139,4 +139,9 @@ export const sites: Site[] = [
 		href: "https://mollypan.tech",
 		thumbnail: "mollypan.tech.png",
 	},
+	{
+		title: "小孙同学",
+		href: "https://blog.sunguoqi.com",
+		thumbnail: "blog.sunguoqi.com.png",
+	},
 ];
