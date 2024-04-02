@@ -144,4 +144,9 @@ export const sites: Site[] = [
 		href: "https://blog.sunguoqi.com",
 		thumbnail: "blog.sunguoqi.com.png",
 	},
+	{
+		title: "HTML.ZONE",
+		href: "https://html.zone",
+		thumbnail: "html.zone.png",
+	},
 ];
