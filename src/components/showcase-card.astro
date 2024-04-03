@@ -19,11 +19,11 @@ if (!thumbnail) {
 		`Could not resolve showcase thumbnail: ${Astro.props.thumbnail}`,
 	);
 }
-const src = (await thumbnail()).default;
+const src = `/api/v1/screenshot?url=${href}`
 ---
 
 <MediaCard {href}>
-	<Image slot="media" {src} alt="" width="560" />
+	<Image slot="media" {src} alt="" width="560" height={365}/>
 	<p class="title">{title}</p>
 </MediaCard>
 

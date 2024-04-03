@@ -1,11 +1,14 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import tailwind from "@astrojs/tailwind";
+import node from "@astrojs/node";
 const site = 'https://astro-cn.com/';
+
 
 // https://astro.build/config
 export default defineConfig({
   site,
+  output: "server",
   integrations: [starlight({
     title: 'Astro 中文网站 Showcase',
     social: {
@@ -47,6 +50,9 @@ export default defineConfig({
     }]
   }), tailwind({
     // 禁用默认的基础样式
-    applyBaseStyles: false,
-  })]
+    applyBaseStyles: false
+  })],
+  adapter: node({
+    mode: "standalone"
+  })
 });

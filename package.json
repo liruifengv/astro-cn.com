@@ -16,10 +16,13 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
+    "@astrojs/node": "^8.2.5",
     "@astrojs/starlight": "^0.21.3",
     "@astrojs/starlight-tailwind": "^2.0.1",
     "@astrojs/tailwind": "^5.1.0",
+    "@zeabur/astro-adapter": "^1.0.0",
     "astro": "^4.5.12",
+    "puppeteer": "^22.6.2",
     "sharp": "^0.32.5",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.3"
