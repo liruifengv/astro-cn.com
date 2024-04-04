@@ -83,7 +83,7 @@ export const sites: Site[] = [
 		href: "https://super.town",
 		thumbnail: "super.town.png",
 	},
-	{ title: "面条实验室", href: "https://mt.ci", thumbnail: "mt.ci.png" },
+	{ title: "mt.ci", href: "https://mt.ci", thumbnail: "mt.ci.png" },
 	{
 		title: "chi.miantiao.me",
 		href: "https://chi.miantiao.me",
@@ -143,5 +143,10 @@ export const sites: Site[] = [
 		title: "小孙同学",
 		href: "https://blog.sunguoqi.com",
 		thumbnail: "blog.sunguoqi.com.png",
+	},
+	{
+		title: "HTML.ZONE",
+		href: "https://html.zone",
+		thumbnail: "html.zone.png",
 	},
 ];
