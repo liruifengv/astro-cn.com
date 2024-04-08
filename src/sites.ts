@@ -149,4 +149,9 @@ export const sites: Site[] = [
 		href: "https://html.zone",
 		thumbnail: "html.zone.png",
 	},
+	{
+		title: "Yunfi",
+		href: "https://yfi.moe",
+		thumbnail: "yfi.moe.png",
+	},
 ];
