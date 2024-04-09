@@ -154,4 +154,9 @@ export const sites: Site[] = [
 		href: "https://yfi.moe",
 		thumbnail: "yfi.moe.png",
 	},
+	{
+		title: "一个球的博客",
+		href: "https://jw1.dev",
+		thumbnail: "jw1.dev.png",
+	},
 ];
