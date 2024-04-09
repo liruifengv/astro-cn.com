@@ -158,5 +158,5 @@ export const sites: Site[] = [
 		title: "一个球的博客",
 		href: "https://jw1.dev",
 		thumbnail: "jw1.dev.png",
-	}
+	},
 ];
