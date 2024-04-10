@@ -159,4 +159,9 @@ export const sites: Site[] = [
 		href: "https://jw1.dev",
 		thumbnail: "jw1.dev.png",
 	},
+	{
+		title: "FINALHOME",
+		href: "https://leohxj.top",
+		thumbnail: "leohxj.top.png",
+	},
 ];
