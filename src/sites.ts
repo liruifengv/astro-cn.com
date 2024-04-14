@@ -164,4 +164,9 @@ export const sites: Site[] = [
 		href: "https://leohxj.top",
 		thumbnail: "leohxj.top.png",
 	},
+	{
+		title: "海棠诗社",
+		href: "https://pocketpoetry.club",
+		thumbnail: "pocketpoetry.club.png",
+	},
 ];
