@@ -169,4 +169,9 @@ export const sites: Site[] = [
 		href: "https://pocketpoetry.club",
 		thumbnail: "pocketpoetry.club.png",
 	},
+	{
+		title: "朝圣之路",
+		href: "https://blog.woven.xin",
+		thumbnail: "woven.xin.png",
+	},
 ];
