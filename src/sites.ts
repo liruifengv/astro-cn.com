@@ -174,4 +174,9 @@ export const sites: Site[] = [
 		href: "https://blog.woven.xin",
 		thumbnail: "woven.xin.png",
 	},
+	{
+		title: "辛宝的玄酒清谈！",
+		href: "https://ijust.cc",
+		thumbnail: "ijust.cc.png",
+	},
 ];
