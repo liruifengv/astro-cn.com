@@ -179,4 +179,9 @@ export const sites: Site[] = [
 		href: "https://ijust.cc",
 		thumbnail: "ijust.cc.png",
 	},
+	{
+		title: "3DRX's blog",
+		href: "https://3drx.top",
+		thumbnail: "3drx.top.png",
+	},
 ];
