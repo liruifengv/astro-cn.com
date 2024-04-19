@@ -184,4 +184,9 @@ export const sites: Site[] = [
 		href: "https://3drx.top",
 		thumbnail: "3drx.top.png",
 	},
+	{
+		title: "deore.me",
+		href: "https://deore.me",
+		thumbnail: "deore.me.png",
+	},
 ];
