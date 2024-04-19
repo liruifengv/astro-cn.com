@@ -43,4 +43,8 @@ const sites: Site[] = [
 
 4. 创建一个 PR 到本仓库。
 
+## 进群交流
+
+> 如果你是 Astro 用户，欢迎加我微信 `liruifengv2333` 进 Astro 中文交流群
+
 [![Deployed on Zeabur](https://zeabur.com/deployed-on-zeabur-dark.svg)](https://zeabur.com?referralCode=liruifengv&utm_source=liruifengv&utm_campaign=oss)
