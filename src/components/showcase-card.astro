@@ -11,7 +11,7 @@ interface Props {
 const { href, title } = Astro.props;
 
 const thumbnails = import.meta.glob<{ default: ImageMetadata }>(
-	"../assets/showcase/*{.png,.jpg,.jpeg,.webp,.avif}",
+	"../assets/showcase/*{.png,.jpg,.jpeg,.webp,.avif,.gif}",
 );
 const thumbnail = thumbnails[`../assets/showcase/${Astro.props.thumbnail}`];
 if (!thumbnail) {

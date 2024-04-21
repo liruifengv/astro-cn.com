@@ -189,4 +189,9 @@ export const sites: Site[] = [
 		href: "https://deore.me",
 		thumbnail: "deore.me.png",
 	},
+	{
+		title: "网上邻居播客",
+		href: "https://linju.io",
+		thumbnail: "linju.io.gif",
+	},
 ];
