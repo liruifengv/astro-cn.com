@@ -189,4 +189,9 @@ export const sites: Site[] = [
 		href: "https://deore.me",
 		thumbnail: "deore.me.png",
 	},
+	{
+		title: "習武的博客",
+		href: "https://xiwu.me",
+		thumbnail: "xiwu.me.png",
+	},
 ];
