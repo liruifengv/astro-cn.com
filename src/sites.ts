@@ -194,9 +194,9 @@ export const sites: Site[] = [
 		href: "https://xiwu.me",
 		thumbnail: "xiwu.me.png",
 	},
-  {
-    title: "Hi, It's Ivan here!",
-    href: "https://iwfan.site",
-    thumbnail: "ivan.iwfan.png"
-  }
+	{
+		title: "Hi, It's Ivan here!",
+		href: "https://iwfan.site",
+		thumbnail: "ivan.iwfan.png",
+	},
 ];
