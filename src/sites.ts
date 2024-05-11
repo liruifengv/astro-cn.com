@@ -199,4 +199,9 @@ export const sites: Site[] = [
 		href: "https://iwfan.site",
 		thumbnail: "ivan.iwfan.png",
 	},
+	{
+		title: "第一在线工具",
+		href: "https://firstoolkit.com/",
+		thumbnail: "firstoolkit.com.png",
+	},
 ];
