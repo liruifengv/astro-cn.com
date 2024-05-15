@@ -204,4 +204,9 @@ export const sites: Site[] = [
 		href: "https://firstoolkit.com/",
 		thumbnail: "firstoolkit.com.png",
 	},
+	{
+		title: "连波的闲谈杂鱼",
+		href: "https://godruoyi.com/",
+		thumbnail: "godruoyi.com.png",
+	},
 ];
