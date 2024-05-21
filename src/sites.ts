@@ -209,4 +209,9 @@ export const sites: Site[] = [
 		href: "https://godruoyi.com/",
 		thumbnail: "godruoyi.com.png",
 	},
+	{
+		title: "Colt",
+		href: "https://cooooolt.com/",
+		thumbnail: "cooooolt.com.png",
+	},
 ];
