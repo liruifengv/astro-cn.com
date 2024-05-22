@@ -214,4 +214,9 @@ export const sites: Site[] = [
 		href: "https://cooooolt.com/",
 		thumbnail: "cooooolt.com.png",
 	},
+	{
+		title: "且听书吟",
+		href: "https://yufan.me/",
+		thumbnail: "yufan.me.png",
+	},
 ];
