@@ -219,4 +219,9 @@ export const sites: Site[] = [
 		href: "https://yufan.me/",
 		thumbnail: "yufan.me.png",
 	},
+	{
+		title: "GeekImprove",
+		href: "https://submara.com",
+		thumbnail: "submara.com.png",
+	},
 ];
