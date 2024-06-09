@@ -23,7 +23,7 @@ const src = (await thumbnail()).default;
 ---
 
 <MediaCard {href}>
-	<Image slot="media" {src} alt="" width="560" />
+	<Image slot="media" {src} alt={title} width="560" />
 	<p class="title">{title}</p>
 </MediaCard>
 

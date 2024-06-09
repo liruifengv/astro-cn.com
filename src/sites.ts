@@ -194,4 +194,39 @@ export const sites: Site[] = [
 		href: "https://linju.io",
 		thumbnail: "linju.io.gif",
 	},
+	{
+		title: "xiwu's blog",
+		href: "https://xiwu.me",
+		thumbnail: "xiwu.me.png",
+	},
+	{
+		title: "Hi, It's Ivan here!",
+		href: "https://iwfan.site",
+		thumbnail: "ivan.iwfan.png",
+	},
+	{
+		title: "第一在线工具",
+		href: "https://firstoolkit.com/",
+		thumbnail: "firstoolkit.com.png",
+	},
+	{
+		title: "连波的闲谈杂鱼",
+		href: "https://godruoyi.com/",
+		thumbnail: "godruoyi.com.png",
+	},
+	{
+		title: "Colt",
+		href: "https://cooooolt.com/",
+		thumbnail: "cooooolt.com.png",
+	},
+	{
+		title: "且听书吟",
+		href: "https://yufan.me/",
+		thumbnail: "yufan.me.png",
+	},
+	{
+		title: "GeekImprove",
+		href: "https://submara.com",
+		thumbnail: "submara.com.png",
+	},
 ];
