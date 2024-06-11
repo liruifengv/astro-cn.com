@@ -190,6 +190,11 @@ export const sites: Site[] = [
 		thumbnail: "deore.me.png",
 	},
 	{
+		title: "网上邻居播客",
+		href: "https://linju.io",
+		thumbnail: "linju.io.gif",
+	},
+	{
 		title: "xiwu's blog",
 		href: "https://xiwu.me",
 		thumbnail: "xiwu.me.png",
