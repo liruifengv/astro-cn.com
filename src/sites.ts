@@ -224,7 +224,7 @@ export const sites: Site[] = [
 		href: "https://submara.com",
 		thumbnail: "submara.com.png",
 	},
-  {
+	{
 		title: "网上邻居播客",
 		href: "https://linju.io",
 		thumbnail: "linju.io.gif",
