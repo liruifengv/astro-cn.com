@@ -229,7 +229,7 @@ export const sites: Site[] = [
 		href: "https://linju.io",
 		thumbnail: "linju.io.gif",
 	},
-  {
+	{
 		title: "Riri's Personal Website",
 		href: "https://daydreamer-riri.me/",
 		thumbnail: "daydreamer-riri.me.png",
