@@ -234,4 +234,14 @@ export const sites: Site[] = [
 		href: "https://daydreamer-riri.me/",
 		thumbnail: "daydreamer-riri.me.png",
 	},
+	{
+		title: "About - Xiaohan Zou",
+		href: "https://zxh.me",
+		thumbnail: "zxh.me.png",
+	},
+	{
+		title: "Q.Ben Zheng | Zhengqbbb",
+		href: "https://qbb.sh",
+		thumbnail: "qbb.sh.png",
+	},
 ];
