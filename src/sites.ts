@@ -254,4 +254,9 @@ export const sites: Site[] = [
 		href: "https://blog.ethanloo.cn", 
 		thumbnail: "ethanloo.cn.png" 
 	},
+	{
+		title: "Ani Offical website",
+		href: "https://myani.org",
+		thumbnail: "myani.org.png"
+	},
 ];
