@@ -244,19 +244,19 @@ export const sites: Site[] = [
 		href: "https://qbb.sh",
 		thumbnail: "qbb.sh.png",
 	},
-	{ 
-		title: "RockyThink", 
-		href: "https://blog.rockythink.work", 
-		thumbnail: "blog.rockythink.work.png" 
+	{
+		title: "RockyThink",
+		href: "https://blog.rockythink.work",
+		thumbnail: "blog.rockythink.work.png",
 	},
-	{ 
-		title: "EthanLoo's", 
-		href: "https://blog.ethanloo.cn", 
-		thumbnail: "ethanloo.cn.png" 
+	{
+		title: "EthanLoo's",
+		href: "https://blog.ethanloo.cn",
+		thumbnail: "ethanloo.cn.png",
 	},
 	{
 		title: "Ani Offical website",
 		href: "https://myani.org",
-		thumbnail: "myani.org.png"
+		thumbnail: "myani.org.png",
 	},
 ];
