@@ -259,4 +259,9 @@ export const sites: Site[] = [
 		href: "https://myani.org",
 		thumbnail: "myani.org.png",
 	},
+	{
+		title: "4Ark",
+		href: "https://4ark.me",
+		thumbnail: "4ark.me.png",
+	},
 ];
