@@ -32,10 +32,10 @@ export const sites: Site[] = [
 		href: "https://blog.bangdream.moe",
 		thumbnail: "blog.bangdream.moe.png",
 	},
-	{ 
+	{
 		title: "yuhang.ch",
 		href: "https://yuhang.ch",
-		thumbnail: "yuhang.ch.png" 
+		thumbnail: "yuhang.ch.png",
 	},
 	{
 		title: "blog.pakchoi.opscat.cn",
@@ -87,10 +87,10 @@ export const sites: Site[] = [
 		href: "https://super.town",
 		thumbnail: "super.town.png",
 	},
-	{ 
+	{
 		title: "mt.ci",
 		href: "https://mt.ci",
-		thumbnail: "mt.ci.png" 
+		thumbnail: "mt.ci.png",
 	},
 	{
 		title: "chi.miantiao.me",
