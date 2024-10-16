@@ -15,6 +15,7 @@
 | `pnpm run dev`             | 在 `localhost:4321` 启动开发服务器      |
 | `pnpm run build`           | 打包到 `./dist/`          |
 | `pnpm run preview`         | 本地预览     |
+| `pnpm format`              | 规范格式     |
 
 ## 添加 Showcase
 
