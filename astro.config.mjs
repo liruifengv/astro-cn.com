@@ -5,6 +5,7 @@ const site = 'https://astro-cn.com/';
 // https://astro.build/config
 export default defineConfig({
   site,
+  output: 'server',
   integrations: [tailwind({
     // 禁用默认的基础样式
     applyBaseStyles: false,

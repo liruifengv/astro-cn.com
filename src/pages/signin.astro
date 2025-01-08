@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const { cookies, redirect } = Astro;
+
+const accessToken = cookies.get("sb-access-token");
+const refreshToken = cookies.get("sb-refresh-token");
+
+if (accessToken && refreshToken) {
+  return redirect("/dashboard");
+}
+---
+
+<Layout title="登录">
+  <h1>登录</h1>
+  <p>新用户? <a href="/register">创建账号</a></p>
+  <form action="/api/auth/signin" method="post">
+    <label for="email">邮箱</label>
+    <input type="email" name="email" id="email" />
+    <label for="password">密码</label>
+    <input type="password" name="password" id="password" />
+    <button type="submit">登录</button>
+    <button value="github" name="provider" type="submit">通过 GitHub 登录</button>
+  </form>
+</Layout>

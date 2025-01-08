@@ -1,0 +1,15 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="注册">
+  <h1>注册</h1>
+  <p>已经有一个账号? <a href="/signin">登录</a></p>
+  <form action="/api/auth/register" method="post">
+    <label for="email">邮箱</label>
+    <input type="email" name="email" id="email" />
+    <label for="password">密码</label>
+    <input type="password" name="password" id="password" />
+    <button type="submit">注册</button>
+  </form>
+</Layout>
