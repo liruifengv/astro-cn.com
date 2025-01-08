@@ -1,70 +1,70 @@
 ---
 export type Image = {
-  src: string
-  alt: string
-}
+	src: string;
+	alt: string;
+};
 export type SEOMetadata = {
-  name: string
-  title: string
-  description: string
-  image: Image
-  canonicalURL?: URL | string | null
-  locale?: string
-}
+	name: string;
+	title: string;
+	description: string;
+	image: Image;
+	canonicalURL?: URL | string | null;
+	locale?: string;
+};
 export type OpenGraph = Partial<SEOMetadata> & {
-  type?: string
-}
+	type?: string;
+};
 export type Twitter = Partial<SEOMetadata> & {
-  handle?: string
-  card?: "summary" | "summary_large_image"
-}
+	handle?: string;
+	card?: "summary" | "summary_large_image";
+};
 export type Props = SEOMetadata & {
-  og?: OpenGraph
-  twitter?: Twitter
-}
+	og?: OpenGraph;
+	twitter?: Twitter;
+};
 const {
-  name,
-  title,
-  description,
-  image,
-  locale = "en",
-  canonicalURL = new URL(Astro.url.pathname, Astro.site),
-} = Astro.props
+	name,
+	title,
+	description,
+	image,
+	locale = "en",
+	canonicalURL = new URL(Astro.url.pathname, Astro.site),
+} = Astro.props;
 
 const og = {
-  name,
-  title,
-  description,
-  canonicalURL,
-  image,
-  locale,
-  type: "website",
-  ...Astro.props.og,
-} satisfies OpenGraph
+	name,
+	title,
+	description,
+	canonicalURL,
+	image,
+	locale,
+	type: "website",
+	...Astro.props.og,
+} satisfies OpenGraph;
 
 const twitter = {
-  name,
-  title,
-  description,
-  canonicalURL,
-  image,
-  locale,
-  card: "summary_large_image",
-  ...Astro.props.twitter,
-} satisfies Twitter
+	name,
+	title,
+	description,
+	canonicalURL,
+	image,
+	locale,
+	card: "summary_large_image",
+	...Astro.props.twitter,
+} satisfies Twitter;
 
 /**
  * Enforce some standard canonical URL formatting across the site.
  */
 function formatCanonicalURL(url: string | URL) {
-  const path = url.toString()
-  const hasQueryParams = path.includes("?")
-  // If there are query params, make sure the URL has no trailing slash
-  if (hasQueryParams) {
-    path.replace(/\/?$/, "")
-  }
-  // otherwise, canonical URL always has a trailing slash
-  return path.replace(/\/?$/, hasQueryParams ? "" : "/")
+	const path = url.toString();
+	const hasQueryParams = path.includes("?");
+	// If there are query params, make sure the URL has no trailing slash
+	if (hasQueryParams) {
+		path.replace(/\/?$/, "");
+	}
+	// otherwise, canonical URL always has a trailing slash
+	return path.replace(/\/?$/, hasQueryParams ? "" : "/");
 }
 ---
 

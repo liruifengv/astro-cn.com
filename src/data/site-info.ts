@@ -26,9 +26,7 @@ export type SiteInfo = {
 	headerLinks: HeaderLink[];
 };
 
-const headerLinks: HeaderLink[] = [
-	{ label: "首页", href: "/" },
-];
+const headerLinks: HeaderLink[] = [{ label: "首页", href: "/" }];
 
 const siteInfo: SiteInfo = {
 	url: "https://astro-cn.com",
