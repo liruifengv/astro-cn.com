@@ -1,0 +1,16 @@
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<script>
+  const favicon = document.querySelector('link[rel="icon"]')!
+
+  // 监听主题变化，切换黑色和白色logo
+  const media = window.matchMedia("(prefers-color-scheme: dark)")
+  const changeFavicon = () => {
+    const dark = media.matches
+    console.log(dark)
+    // favicon.setAttribute("href", `/favicon${dark ? "-dark" : ""}.svg`)
+    favicon.setAttribute("href", `/favicon.svg`)
+  }
+  media.addEventListener("change", changeFavicon)
+  changeFavicon()
+</script>

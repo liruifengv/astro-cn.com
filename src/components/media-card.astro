@@ -6,8 +6,8 @@ const { href } = Astro.props;
 const El = href ? "a" : "span";
 ---
 
-<li class="not-content sl-flex">
-	<El class="media-card sl-flex" {href} target="_blank">
+<li class="not-content flex">
+	<El class="media-card" {href} target="_blank">
 		<div class="media"><slot name="media" /></div>
 		<slot />
 	</El>
@@ -16,11 +16,11 @@ const El = href ? "a" : "span";
 <style>
 	.media-card {
 		flex-direction: column;
-		border: 1px solid var(--sl-color-gray-5);
+		border: 1px solid #c2c2c2;
 		border-radius: 0.5rem;
 		overflow: hidden;
 		text-decoration: none;
-		box-shadow: var(--sl-shadow-sm);
+		box-shadow: 0px 1px 1px hsla(0, 0%, 0%, .06), 0px 2px 1px hsla(0, 0%, 0%, .06);
 		width: 100%;
 	}
 	
@@ -31,7 +31,7 @@ const El = href ? "a" : "span";
 	}
 
 	.media {
-		border-bottom: 1px solid var(--sl-color-gray-5);
+		border-bottom: 1px solid #c2c2c2;
 	}
 
 	.media :global(img) {
@@ -43,8 +43,8 @@ const El = href ? "a" : "span";
 	}
 
 	.media-card :global(.title) {
-		color: var(--sl-color-white);
+		color: #181818;
 		font-weight: 600;
-		line-height: var(--sl-line-height-headings);
+		line-height: 1.2;
 	}
 </style>

@@ -1,3 +1,4 @@
+import siteInfo from "@/data/site-info";
 import type { APIRoute } from "astro";
 
 const robots = `
@@ -7,7 +8,7 @@ Disallow:
 User-agent: *
 Allow: /
 
-Sitemap: ${new URL("sitemap-index.xml", "https://astro-cn.com").href}
+Sitemap: ${new URL("sitemap-index.xml", siteInfo.url).href}
 `.trim();
 
 export const GET: APIRoute = () =>

@@ -1,21 +1,17 @@
 ---
-import { Aside } from "@astrojs/starlight/components";
-import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
-import Footer from "../components/footer.astro";
-import ShowcaseSites from "../components/showcase-sites.astro";
+import Layout from '../layouts/Layout.astro';
+import ShowcaseSites from "@/components/showcase-sites.astro";
 
 const title = "Showcase";
 const description =
 	"Astro 中文网站 Showcase，展示了一些使用 Astro 构建的中文网站。";
+
 ---
 
-<StarlightPage frontmatter={{ title: title, description: description, template: 'splash' }}>
-  <Aside type="tip" title="添加你自己的！">
-    你是否使用 Astro 或 Starlight 构建过网站？
-    <a href="https://github.com/liruifengv/astro-site-showcase-cn" target="_blank">创建一个 PR</a> 来添加链接到此页面！
-  </Aside>
-
-  <ShowcaseSites />
-
-</StarlightPage>
-<Footer/>
+<Layout title{title} description={description}>
+  <div
+    class="w-full max-w-screen-xl mt-5 px-4 2xl:px-0"
+  >
+    <ShowcaseSites />
+  </div>
+</Layout>
