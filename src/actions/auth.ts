@@ -92,6 +92,7 @@ export const auth = {
 		},
 	}),
   signInWithGithub: defineAction({
+    accept: "form",
     handler: async () => {
       console.log("signInWithGithub")
       const { data, error } = await supabase.auth.signInWithOAuth({

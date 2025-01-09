@@ -9,6 +9,11 @@ const actionError = isActionError(result?.error) ? result.error.message : "";
 if (result && !result.error) {
 	return Astro.redirect(`/`);
 }
+
+const OAuthResult = Astro.getActionResult(actions.auth.signInWithGithub);
+if (OAuthResult && !OAuthResult.error) {
+  return Astro.redirect(OAuthResult.data.toString());
+}
 ---
 
 <Layout title="登录">
@@ -65,29 +70,16 @@ if (result && !result.error) {
             登录
           </button>
         </form>
-        <button 
+        <form action={actions.auth.signInWithGithub} method="post">
+          <button 
           type="submit"
           id="github-signin"
           class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 transition-colors mt-4"
         >
           使用 Github 登录
         </button>
+        </form>
       </div>
     </div>
   </main>
 </Layout>
-
-<script>
-import { actions } from "astro:actions";
-
-const githubSignin = document.getElementById('github-signin');
-githubSignin!.addEventListener('click', async () => {
-  const { data, error } = await actions.auth.signInWithGithub();
-  if (error) {
-    alert(error.message);
-  } else {
-    window.location.href = data.toString();
-  }
-});
-
-</script>
