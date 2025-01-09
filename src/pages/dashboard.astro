@@ -1,40 +1,13 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { supabase } from "@/lib/supabase";
+import { actions } from "astro:actions";
 
-const accessToken = Astro.cookies.get("sb-access-token");
-const refreshToken = Astro.cookies.get("sb-refresh-token");
+const email = Astro.locals.user?.email;
 
-if (!accessToken || !refreshToken) {
-  return Astro.redirect("/signin");
+const result = Astro.getActionResult(actions.auth.signout);
+if (result && !result.error) {
+  return Astro.redirect(`/signin`);
 }
-
-let session;
-try {
-  session = await supabase.auth.setSession({
-    refresh_token: refreshToken.value,
-    access_token: accessToken.value,
-  });
-  if (session.error) {
-    Astro.cookies.delete("sb-access-token", {
-      path: "/",
-    });
-    Astro.cookies.delete("sb-refresh-token", {
-      path: "/",
-    });
-    return Astro.redirect("/signin");
-  }
-} catch (error) {
-  Astro.cookies.delete("sb-access-token", {
-    path: "/",
-  });
-  Astro.cookies.delete("sb-refresh-token", {
-    path: "/",
-  });
-  return Astro.redirect("/signin");
-}
-
-const email = session.data.user?.email;
 ---
 <Layout title="控制台">
   <h1>欢迎 {email}</h1>
