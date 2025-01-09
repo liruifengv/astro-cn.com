@@ -9,3 +9,14 @@ export const supabase = createClient(
     },
   },
 );
+
+export const supabaseAdmin = createClient(
+  import.meta.env.SUPABASE_URL,
+  import.meta.env.SUPABASE_ROLE_KEY,
+  {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false
+    }
+  },
+);
