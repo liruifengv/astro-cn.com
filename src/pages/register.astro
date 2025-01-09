@@ -1,14 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 
-import { actions, isInputError, isActionError } from 'astro:actions';
+import { actions, isInputError, isActionError } from "astro:actions";
 
 const result = Astro.getActionResult(actions.auth.register);
 const inputErrors = isInputError(result?.error) ? result.error.fields : {};
-const actionError = isActionError(result?.error) ? result.error.message : '';
+const actionError = isActionError(result?.error) ? result.error.message : "";
 
 if (result && !result.error) {
-  return Astro.redirect(`/signin`);
+	Astro.redirect(`/signin`);
 }
 ---
 

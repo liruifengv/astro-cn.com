@@ -6,10 +6,10 @@ const { cookies, redirect } = Astro;
 
 const result = Astro.getActionResult(actions.auth.signin);
 const inputErrors = isInputError(result?.error) ? result.error.fields : {};
-const actionError = isActionError(result?.error) ? result.error.message : '';
+const actionError = isActionError(result?.error) ? result.error.message : "";
 
 if (result && !result.error) {
-  return Astro.redirect(`/`);
+	Astro.redirect(`/`);
 }
 ---
 
