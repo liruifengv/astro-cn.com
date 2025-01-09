@@ -8,7 +8,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 const actionError = isActionError(result?.error) ? result.error.message : "";
 
 if (result && !result.error) {
-	Astro.redirect(`/signin`);
+	return Astro.redirect(`/signin`);
 }
 ---
 

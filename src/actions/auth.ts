@@ -1,7 +1,12 @@
 import { supabase } from "@/lib/supabase";
 import { ActionError, defineAction } from "astro:actions";
+import type { Provider } from "@supabase/supabase-js";
+import siteInfo from "@/data/site-info";
 
 import { z } from "astro:schema";
+
+const isDev = import.meta.env.MODE === "development";
+const siteUrl = isDev ? "http://localhost:4321" : siteInfo.url;
 
 export const auth = {
 	register: defineAction({
@@ -86,4 +91,24 @@ export const auth = {
 			return data;
 		},
 	}),
+  signInWithGithub: defineAction({
+    handler: async () => {
+      console.log("signInWithGithub")
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: "github",
+        options: {
+          redirectTo: `${siteUrl}/api/auth/callback`
+        },
+      });
+  
+      if (error) {
+        return new ActionError({
+          code: "BAD_REQUEST",
+          message: error.message,
+        });
+      } else {
+        return data.url
+      }
+    },
+  }),
 };

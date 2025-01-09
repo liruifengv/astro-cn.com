@@ -6,7 +6,7 @@ const email = Astro.locals.user?.email;
 
 const result = Astro.getActionResult(actions.auth.signout);
 if (result && !result.error) {
-	Astro.redirect(`/signin`);
+	return Astro.redirect(`/signin`);
 }
 ---
 <Layout>

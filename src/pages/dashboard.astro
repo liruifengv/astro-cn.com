@@ -6,13 +6,13 @@ const email = Astro.locals.user?.email;
 
 const result = Astro.getActionResult(actions.auth.signout);
 if (result && !result.error) {
-	Astro.redirect(`/signin`);
+	return Astro.redirect(`/signin`);
 }
 ---
 <Layout title="控制台">
   <h1>欢迎 {email}</h1>
   <p>我们很高兴在这里见到你</p>
-  <form action="/api/auth/signout">
+  <form action={actions.auth.signout} method="post">
     <button type="submit">退出登录</button>
   </form>
 </Layout>
