@@ -1,7 +1,45 @@
 ---
-import Layout from "../layouts/Layout.astro";
----
+import Layout from "@/layouts/Layout.astro";
+import { supabase } from "@/lib/supabase";
 
+const accessToken = Astro.cookies.get("sb-access-token");
+const refreshToken = Astro.cookies.get("sb-refresh-token");
+
+if (!accessToken || !refreshToken) {
+  return Astro.redirect("/signin");
+}
+
+let session;
+try {
+  session = await supabase.auth.setSession({
+    refresh_token: refreshToken.value,
+    access_token: accessToken.value,
+  });
+  if (session.error) {
+    Astro.cookies.delete("sb-access-token", {
+      path: "/",
+    });
+    Astro.cookies.delete("sb-refresh-token", {
+      path: "/",
+    });
+    return Astro.redirect("/signin");
+  }
+} catch (error) {
+  Astro.cookies.delete("sb-access-token", {
+    path: "/",
+  });
+  Astro.cookies.delete("sb-refresh-token", {
+    path: "/",
+  });
+  return Astro.redirect("/signin");
+}
+
+const email = session.data.user?.email;
+---
 <Layout>
-  <div class="text-red-500">你好</div>
+  <h1>欢迎 {email}</h1>
+  <p>我们很高兴在这里见到你</p>
+  <form action="/api/auth/signout">
+    <button type="submit">退出登录</button>
+  </form>
 </Layout>

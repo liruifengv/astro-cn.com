@@ -1,6 +1,10 @@
 import type { APIRoute } from "astro";
 import { supabase } from "../../../lib/supabase";
 import type { Provider } from "@supabase/supabase-js";
+import siteInfo from "@/data/site-info";
+
+const isDev = import.meta.env.MODE === "development";
+const siteUrl = isDev ? "http://localhost:3000" : siteInfo.url;
 
 export const POST: APIRoute = async ({ request, cookies, redirect }) => {
   const formData = await request.formData();
@@ -14,7 +18,7 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: provider as Provider,
       options: {
-        redirectTo: "http://localhost:4321/api/auth/callback"
+        redirectTo: `${siteUrl}/api/auth/callback`
       },
     });
 
@@ -45,5 +49,5 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
   cookies.set("sb-refresh-token", refresh_token, {
     path: "/",
   });
-  return redirect("/dashboard");
+  return redirect("/");
 };
