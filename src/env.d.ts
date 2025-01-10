@@ -18,8 +18,6 @@ declare global {
 	declare namespace App {
 		interface Locals extends Runtime {
 			user: User | null;
-      supabase: import("@supabase/supabase-js").SupabaseClient;
-      supabaseAdmin: import("@supabase/supabase-js").SupabaseClient;
 		}
 	}
 }

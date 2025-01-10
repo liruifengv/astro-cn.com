@@ -1,3 +1,4 @@
+import { supabase } from "@/lib/supabase";
 import { defineMiddleware } from "astro:middleware";
 
 const protectedRoutes = ["/", "/dashboard"];
@@ -14,7 +15,7 @@ export default defineMiddleware(
 				return redirect("/signin");
 			}
 
-			const { data, error } = await locals.supabase.auth.setSession({
+			const { data, error } = await supabase.auth.setSession({
 				refresh_token: refreshToken.value,
 				access_token: accessToken.value,
 			});
