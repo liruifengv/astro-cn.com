@@ -11,9 +11,11 @@ export default defineMiddleware(
 
     const { env } = locals.runtime;
     console.log('env.SUPABASE_URL', env.SUPABASE_URL);
+    console.log('import.meta.env.SUPABASE_URL2', import.meta.env.SUPABASE_URL);
+    console.log('import.meta.env.BASE_URL', import.meta.env.BASE_URL);
     console.log('env.SUPABASE_ANON_KEY', env.SUPABASE_ANON_KEY);
     console.log('env.SUPABASE_ROLE_KEY', env.SUPABASE_ROLE);  
-    console.log('env.CF_PAGES', env.CF_PAGES);  
+    console.log('env.CF_PAGES', env.CF_PAGES);
     const supabase = createClient(
       env.SUPABASE_URL,
       env.SUPABASE_ANON_KEY,
