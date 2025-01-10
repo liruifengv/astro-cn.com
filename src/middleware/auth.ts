@@ -8,7 +8,7 @@ export default defineMiddleware(
 	async ({ locals, url, cookies, redirect }, next) => {
 
     console.log("process.env.SUPABASE_URL in middleware", process.env.SUPABASE_URL);
-console.log("process.env.SUPABASE_ANON_KEY in middleware", process.env.SUPABASE_ANON_KEY);
+    console.log("process.env.SUPABASE_ANON_KEY in middleware", process.env.SUPABASE_ANON_KEY);
 
 
     const pathname = url.pathname.replace(/\/$/, "") || "/";
