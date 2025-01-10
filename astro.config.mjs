@@ -11,5 +11,7 @@ export default defineConfig({
     // 禁用默认的基础样式
     applyBaseStyles: false,
   })],
-  adapter: cloudflare()
+  adapter: cloudflare({
+    imageService: 'cloudflare'
+  })
 });
