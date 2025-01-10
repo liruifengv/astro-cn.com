@@ -12,6 +12,10 @@ export default defineConfig({
     applyBaseStyles: false,
   })],
   adapter: cloudflare({
-    imageService: 'cloudflare'
+    imageService: 'cloudflare',
+    platformProxy: {
+      enabled: true,
+      configPath: '.wrangler/wrangler.toml',
+    },
   })
 });
