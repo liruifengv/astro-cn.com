@@ -19,11 +19,7 @@ export default defineConfig({
     },
     routes: {
       extend: {
-        include: [
-          '/',
-          '/signin',
-          'register',
-        ],
+        include: [{ pattern: '/signin' },{ pattern: '/register' }],
       }
     }
   })
