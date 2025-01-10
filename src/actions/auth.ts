@@ -5,7 +5,6 @@ import siteInfo from "@/data/site-info";
 import { z } from "astro:schema";
 
 const isDev = import.meta.env.MODE === "development";
-const siteUrl = isDev ? "http://localhost:4321" : siteInfo.url;
 
 export const auth = {
 	register: defineAction({
@@ -70,7 +69,7 @@ export const auth = {
 	}),
 	signout: defineAction({
 		accept: "form",
-		handler: async (notUse, { cookies }) => {
+		handler: async ({}, { cookies }) => {
 			await supabase.auth.signOut();
 			cookies.delete("sb-access-token", { path: "/" });
 			cookies.delete("sb-refresh-token", { path: "/" });
@@ -92,12 +91,11 @@ export const auth = {
 	}),
   signInWithGithub: defineAction({
     accept: "form",
-    handler: async () => {
-      console.log("signInWithGithub")
+    handler: async ({}, { url }) => {
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "github",
         options: {
-          redirectTo: `${siteUrl}/api/auth/callback`
+          redirectTo: `${url.origin}/api/auth/callback`
         },
       });
   
