@@ -24,8 +24,8 @@ export default defineMiddleware(
       },
     );
     const supabaseAdmin = createClient(
-      import.meta.env.SUPABASE_URL,
-      import.meta.env.SUPABASE_ROLE_KEY,
+      env.SUPABASE_URL,
+      env.SUPABASE_ROLE_KEY,
       {
         auth: {
           autoRefreshToken: false,
