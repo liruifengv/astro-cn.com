@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField  } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import cloudflare from '@astrojs/cloudflare';
 const site = 'https://astro-cn.com/';
@@ -17,5 +17,21 @@ export default defineConfig({
       enabled: true,
       configPath: '.wrangler/wrangler.toml',
     },
-  })
+  }),
+  env: {
+    schema: {
+      SUPABASE_URL: envField.string({
+        context: "server",
+        access: "public",
+      }),
+      SUPABASE_ANON_KEY: envField.string({
+        context: "server",
+        access: "public",
+      }),
+      SUPABASE_ROLE_KEY: envField.string({
+        context: "server",
+        access: "secret",
+      }),
+    },
+  }
 });
