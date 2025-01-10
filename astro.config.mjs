@@ -17,10 +17,5 @@ export default defineConfig({
       enabled: true,
       configPath: '.wrangler/wrangler.toml',
     },
-    routes: {
-      extend: {
-        include: [{ pattern: '/signin' },{ pattern: '/register' }],
-      }
-    }
   })
 });
