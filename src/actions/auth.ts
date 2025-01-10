@@ -1,10 +1,6 @@
 import { supabase } from "@/lib/supabase";
 import { ActionError, defineAction } from "astro:actions";
-import siteInfo from "@/data/site-info";
-
 import { z } from "astro:schema";
-
-const isDev = import.meta.env.MODE === "development";
 
 export const auth = {
 	register: defineAction({
