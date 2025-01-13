@@ -26,15 +26,12 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.2
         version: 5.1.2(astro@5.1.3(@types/node@22.10.5)(jiti@1.21.6)(rollup@4.24.0)(typescript@5.7.2)(yaml@2.6.0))(tailwindcss@3.4.14)
+      '@iconify/tailwind':
+        specifier: ^1.2.0
+        version: 1.2.0
       '@supabase/supabase-js':
         specifier: ^2.47.12
         version: 2.47.12
-      '@types/react':
-        specifier: ^19.0.6
-        version: 19.0.6
-      '@types/react-dom':
-        specifier: ^19.0.3
-        version: 19.0.3(@types/react@19.0.6)
       astro:
         specifier: ^5.1.3
         version: 5.1.3(@types/node@22.10.5)(jiti@1.21.6)(rollup@4.24.0)(typescript@5.7.2)(yaml@2.6.0)
@@ -69,6 +66,12 @@ importers:
       '@iconify-json/ri':
         specifier: ^1.2.5
         version: 1.2.5
+      '@types/react':
+        specifier: ^19.0.6
+        version: 19.0.6
+      '@types/react-dom':
+        specifier: ^19.0.3
+        version: 19.0.3(@types/react@19.0.6)
       smartypants:
         specifier: ^0.2.2
         version: 0.2.2
@@ -828,6 +831,9 @@ packages:
 
   '@iconify-json/ri@1.2.5':
     resolution: {integrity: sha512-kWGimOXMZrlYusjBKKXYOWcKhbOHusFsmrmRGmjS7rH0BpML5A9/fy8KHZqFOwZfC4M6amObQYbh8BqO5cMC3w==}
+
+  '@iconify/tailwind@1.2.0':
+    resolution: {integrity: sha512-KgpIHWOTcRYw1XcoUqyNSrmYyfLLqZYu3AmP8zdfLk0F5TqRO8YerhlvlQmGfn7rJXgPeZN569xPAJnJ53zZxA==}
 
   '@iconify/tools@4.1.1':
     resolution: {integrity: sha512-Hybu/HGhv6T8nLQhiG9rKx+ekF7NNpPOEQAy7JRSKht3s3dcFSsPccYzk24Znc9MTxrR6Gak3cg6CPP5dyvS2Q==}
@@ -4164,6 +4170,10 @@ snapshots:
   '@fastify/busboy@2.1.1': {}
 
   '@iconify-json/ri@1.2.5':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify/tailwind@1.2.0':
     dependencies:
       '@iconify/types': 2.0.0
 
