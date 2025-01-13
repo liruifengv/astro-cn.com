@@ -1,8 +1,9 @@
 ---
 import siteInfo from "@/data/site-info"
-import { Image } from "astro:assets"
 import { Icon } from "astro-icon/components"
 import ThemeToggle from "../ThemeToggle.astro"
+
+import Avatar from "../Avatar.astro"
 
 const user = Astro.locals.user
 ---
@@ -35,13 +36,9 @@ const user = Astro.locals.user
       <ThemeToggle />
       {
         user ? (
-          <Image
-            src={user?.user_metadata?.avatar_url}
-            width={36}
-            height={36}
-            alt="avatar"
-            class="rounded-full cursor-pointer border border-gray-400 dark:border-gray-600"
-          />
+          <Avatar server:defer>
+            <Icon name="ri:account-circle-2-fill" size={36} slot="fallback" />
+          </Avatar>
         ) : (
           <a href="/signin" class="flex items-center" title="Login">
             登录

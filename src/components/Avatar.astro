@@ -1,0 +1,14 @@
+---
+import { Image } from "astro:assets"
+import { actions } from "astro:actions"
+
+const { data } = await Astro.callAction(actions.auth.get_user, {})
+---
+
+<Image
+  src={data?.user?.user_metadata?.avatar_url}
+  width={36}
+  height={36}
+  alt="avatar"
+  class="rounded-full cursor-pointer border border-gray-400 dark:border-gray-600"
+/>
