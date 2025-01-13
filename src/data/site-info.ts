@@ -1,32 +1,32 @@
 export type SocialLink = {
-	text: string;
-	icon: string;
-	href: string;
-	platform: string;
-	footerOnly?: boolean;
-};
+	text: string
+	icon: string
+	href: string
+	platform: string
+	footerOnly?: boolean
+}
 
 export type HeaderLink = {
-	label: string;
-	href: string;
-	isAnchor?: boolean;
-};
+	label: string
+	href: string
+	isAnchor?: boolean
+}
 
 export type SiteInfo = {
-	url: string;
-	name: string;
-	title: string;
-	description: string;
+	url: string
+	name: string
+	title: string
+	description: string
 	image: {
-		src: string;
-		alt: string;
-	};
-	rss?: boolean;
-	socialLinks: SocialLink[];
-	headerLinks: HeaderLink[];
-};
+		src: string
+		alt: string
+	}
+	rss?: boolean
+	socialLinks: SocialLink[]
+	headerLinks: HeaderLink[]
+}
 
-const headerLinks: HeaderLink[] = [{ label: "首页", href: "/" }];
+const headerLinks: HeaderLink[] = [{ label: "首页", href: "/" }]
 
 const siteInfo: SiteInfo = {
 	url: "https://astro-cn.com",
@@ -47,6 +47,6 @@ const siteInfo: SiteInfo = {
 		},
 	],
 	headerLinks,
-};
+}
 
-export default siteInfo;
+export default siteInfo

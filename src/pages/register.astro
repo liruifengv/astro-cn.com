@@ -1,66 +1,101 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro"
 
-import { actions, isInputError, isActionError } from "astro:actions";
+import { actions, isInputError, isActionError } from "astro:actions"
 
-const result = Astro.getActionResult(actions.auth.register);
-const inputErrors = isInputError(result?.error) ? result.error.fields : {};
-const actionError = isActionError(result?.error) ? result.error.message : "";
+const result = Astro.getActionResult(actions.auth.register)
+const inputErrors = isInputError(result?.error) ? result.error.fields : {}
+const actionError = isActionError(result?.error) ? result.error.message : ""
 
 if (result && !result.error) {
-	return Astro.redirect(`/signin`);
+  return Astro.redirect("/signin")
 }
 ---
 
 <Layout title="注册">
-  <main class="min-h-[calc(100vh-4rem)] w-full bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+  <main
+    class="min-h-[calc(100vh-4rem)] w-full bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8"
+  >
     <div class="max-w-md mx-auto">
-      <div class="bg-white dark:bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10">
-        <h1 class="text-center text-3xl font-extrabold text-gray-900 dark:text-white mb-8">
+      <div
+        class="bg-white dark:bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10"
+      >
+        <h1
+          class="text-center text-3xl font-extrabold text-gray-900 dark:text-white mb-8"
+        >
           注册账号
         </h1>
-        
-        <p class="text-center text-sm text-gray-600 dark:text-gray-400 mt-2 mb-8">
-          已经有一个账号? 
-          <a href="/signin" class="font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors">
+
+        <p
+          class="text-center text-sm text-gray-600 dark:text-gray-400 mt-2 mb-8"
+        >
+          已经有一个账号?
+          <a
+            href="/signin"
+            class="font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors"
+          >
             登录
           </a>
         </p>
 
         <form action={actions.auth.register} method="post" class="space-y-6">
           <div>
-            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            <label
+              for="email"
+              class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            >
               邮箱
             </label>
             <div class="mt-1">
-              <input 
-                type="email" 
-                name="email" 
+              <input
+                type="email"
+                name="email"
                 id="email"
                 required
                 class="appearance-none block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white sm:text-sm"
               />
             </div>
-            {inputErrors.email && <p id="error1" class="text-red-500 dark:text-red-400 text-sm">{inputErrors.email.join(',')}</p>}
+            {
+              inputErrors.email && (
+                <p id="error1" class="text-red-500 dark:text-red-400 text-sm">
+                  {inputErrors.email.join(",")}
+                </p>
+              )
+            }
           </div>
 
           <div>
-            <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            <label
+              for="password"
+              class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            >
               密码
             </label>
             <div class="mt-1">
-              <input 
-                type="password" 
-                name="password" 
+              <input
+                type="password"
+                name="password"
                 id="password"
                 required
                 class="appearance-none block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white sm:text-sm"
               />
             </div>
-            {inputErrors.password && <p id="error2" class="text-red-500 dark:text-red-400 text-sm">{inputErrors.password.join(',')}</p>}
+            {
+              inputErrors.password && (
+                <p id="error2" class="text-red-500 dark:text-red-400 text-sm">
+                  {inputErrors.password.join(",")}
+                </p>
+              )
+            }
           </div>
 
-          {actionError && <p id="error3" class="text-red-500 dark:text-red-400 text-sm">{actionError}</p>}
+          {
+            actionError && (
+              <p id="error3" class="text-red-500 dark:text-red-400 text-sm">
+                {actionError}
+              </p>
+            )
+          }
 
           <button
             type="submit"

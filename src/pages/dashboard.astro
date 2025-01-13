@@ -1,14 +1,15 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { actions } from "astro:actions";
+import Layout from "@/layouts/Layout.astro"
+import { actions } from "astro:actions"
 
-const email = Astro.locals.user?.email;
+const email = Astro.locals.user?.email
 
-const result = Astro.getActionResult(actions.auth.signout);
+const result = Astro.getActionResult(actions.auth.signout)
 if (result && !result.error) {
-	return Astro.redirect(`/signin`);
+  return Astro.redirect("/signin")
 }
 ---
+
 <Layout title="控制台">
   <div class="text-dark dark:text-white">
     <h1>欢迎 {email}</h1>

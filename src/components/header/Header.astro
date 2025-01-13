@@ -1,7 +1,7 @@
 ---
-import siteInfo from "@/data/site-info";
-import { Icon } from "astro-icon/components";
-import ThemeToggle from "../ThemeToggle.astro";
+import siteInfo from "@/data/site-info"
+import { Icon } from "astro-icon/components"
+import ThemeToggle from "../ThemeToggle.astro"
 ---
 
 <header
@@ -14,7 +14,13 @@ import ThemeToggle from "../ThemeToggle.astro";
     aria-label="Primary"
     class="max-w-screen-xl px-4 2xl:px-0 box-border w-full mx-auto flex h-16 items-center justify-between"
   >
-    <a href="/" data-astro-prefetch title="首页" class="flex items-center" data-home-link>
+    <a
+      href="/"
+      data-astro-prefetch
+      title="首页"
+      class="flex items-center"
+      data-home-link
+    >
       <span class="sr-only">Logo</span>
       <Icon name="logo" class="w-8 h-8" />
       <span class="ml-2 text-lg font-bold text-gray-800 dark:text-white">

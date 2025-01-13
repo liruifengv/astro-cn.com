@@ -1,18 +1,16 @@
 ---
-export const prerender = true;
+export const prerender = true
 
-import Layout from "../layouts/Layout.astro";
-import ShowcaseSites from "@/components/showcase-sites.astro";
+import Layout from "../layouts/Layout.astro"
+import ShowcaseSites from "@/components/showcase-sites.astro"
 
-const title = "Showcase";
+const title = "Showcase"
 const description =
-	"Astro 中文网站 Showcase，展示了一些使用 Astro 构建的中文网站。";
+  "Astro 中文网站 Showcase，展示了一些使用 Astro 构建的中文网站。"
 ---
 
-<Layout title{title} description={description}>
-  <div
-    class="w-full max-w-screen-xl mt-5 px-4 2xl:px-0"
-  >
+<Layout {title} description={description}>
+  <div class="w-full max-w-screen-xl mt-5 px-4 2xl:px-0">
     <ShowcaseSites />
   </div>
 </Layout>

@@ -1,33 +1,39 @@
 ---
-import BaseHead, { type Props as HeadProps } from "@/components/BaseHead.astro";
-import SkipLink from "@/components/SkipLink.astro";
-import Header from "@/components/header/Header.astro";
-import Footer from "@/components/footer.astro";
+import BaseHead, { type Props as HeadProps } from "@/components/BaseHead.astro"
+import SkipLink from "@/components/SkipLink.astro"
+import Header from "@/components/header/Header.astro"
+import Footer from "@/components/footer.astro"
 
-import "@/styles/globals.css";
+import "@/styles/globals.css"
 
 interface Props extends HeadProps {
-	class?: string;
+  class?: string
 }
 
-const { ...head } = Astro.props;
+const { ...head } = Astro.props
 ---
 
 <!doctype html>
 <html
   lang="zh-CN"
-  class:list={["overflow-x-hidden break-words bg-gray-50 dark:bg-gray-900", Astro.props.class]}
+  class:list={[
+    "overflow-x-hidden break-words bg-gray-50 dark:bg-gray-900",
+    Astro.props.class,
+  ]}
 >
   <head>
     <BaseHead {...head} />
   </head>
   <body class="flex min-h-screen max-w-screen flex-col overflow-x-hidden">
     <SkipLink />
-      <Header />
-      <main id="main" class="relative z-10 flex flex-1 flex-col w-full mt-16 items-center">
-        <slot />
-      </main>
-      <Footer />
+    <Header />
+    <main
+      id="main"
+      class="relative z-10 flex flex-1 flex-col w-full mt-16 items-center"
+    >
+      <slot />
+    </main>
+    <Footer />
     <style>
       body::before {
         content: "";

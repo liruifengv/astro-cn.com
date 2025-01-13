@@ -4,12 +4,17 @@
 		"enabled": true
 	},
 	"files": {
-		"ignore": ["src/**/dist/*"]
+		"ignore": ["src/**/dist/*", "*.astro"]
 	},
 	"linter": {
 		"enabled": true,
 		"rules": {
 			"recommended": true
 		}
-	}
+	},
+  "javascript": {
+    "formatter": {
+      "semicolons": "asNeeded"
+    }
+  }
 }
