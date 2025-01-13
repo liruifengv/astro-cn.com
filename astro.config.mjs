@@ -1,4 +1,4 @@
-import { defineConfig, envField  } from 'astro/config';
+import { defineConfig, envField, passthroughImageService } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import cloudflare from '@astrojs/cloudflare';
 import icon from "astro-icon";
@@ -23,7 +23,6 @@ export default defineConfig({
     icon(),
     react(),
     sitemap(),
-    mdx(),
     expressiveCode({
       themes: ["material-theme-darker"],
       plugins: [{
@@ -58,10 +57,11 @@ export default defineConfig({
         codePaddingInline: "1rem",
         codeFontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;'
       }
-    })
+    }),
+    mdx()
   ],
   adapter: cloudflare({
-    imageService: 'cloudflare',
+    imageService: 'passthrough',
     platformProxy: {
       enabled: true,
       configPath: '.wrangler/wrangler.toml',
