@@ -6,7 +6,7 @@ const redirectRoutes = ["/signin", "/register"];
 
 export default defineMiddleware(
 	async ({ locals, url, cookies, redirect }, next) => {
-    const pathname = url.pathname.replace(/\/$/, "") || "/";
+		const pathname = url.pathname.replace(/\/$/, "") || "/";
 		if (protectedRoutes.includes(pathname)) {
 			const accessToken = cookies.get("sb-access-token");
 			const refreshToken = cookies.get("sb-refresh-token");

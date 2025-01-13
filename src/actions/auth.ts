@@ -85,24 +85,24 @@ export const auth = {
 			return data;
 		},
 	}),
-  signInWithGithub: defineAction({
-    accept: "form",
-    handler: async ({}, { url }) => {
-      const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: "github",
-        options: {
-          redirectTo: `${url.origin}/api/auth/callback`
-        },
-      });
-  
-      if (error) {
-        return new ActionError({
-          code: "BAD_REQUEST",
-          message: error.message,
-        });
-      } else {
-        return data.url
-      }
-    },
-  }),
+	signInWithGithub: defineAction({
+		accept: "form",
+		handler: async ({}, { url }) => {
+			const { data, error } = await supabase.auth.signInWithOAuth({
+				provider: "github",
+				options: {
+					redirectTo: `${url.origin}/api/auth/callback`,
+				},
+			});
+
+			if (error) {
+				return new ActionError({
+					code: "BAD_REQUEST",
+					message: error.message,
+				});
+			} else {
+				return data.url;
+			}
+		},
+	}),
 };
