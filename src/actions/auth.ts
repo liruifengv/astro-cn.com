@@ -1,6 +1,6 @@
-import { supabase } from "@/lib/supabase"
 import { ActionError, defineAction } from "astro:actions"
 import { z } from "astro:schema"
+import { supabase } from "@/lib/supabase"
 
 export const auth = {
 	register: defineAction({

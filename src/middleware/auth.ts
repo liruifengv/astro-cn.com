@@ -1,5 +1,5 @@
-import { supabase } from "@/lib/supabase"
 import { defineMiddleware } from "astro:middleware"
+import { supabase } from "@/lib/supabase"
 
 const protectedRoutes = ["/", "/dashboard"]
 const redirectRoutes = ["/signin", "/register"]
