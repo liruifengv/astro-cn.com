@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import { actions, isActionError, isInputError } from "astro:actions"
+import { Icon } from "astro-icon/components"
 
 const result = Astro.getActionResult(actions.auth.signin)
 const inputErrors = isInputError(result?.error) ? result.error.fields : {}
@@ -13,6 +14,11 @@ if (result && !result.error) {
 const OAuthResult = Astro.getActionResult(actions.auth.signInWithGithub)
 if (OAuthResult && !OAuthResult.error) {
   return Astro.redirect(OAuthResult.data.toString())
+}
+
+const OAuthResult2 = Astro.getActionResult(actions.auth.signInWithGoogle)
+if (OAuthResult2 && !OAuthResult2.error) {
+  return Astro.redirect(OAuthResult2.data.toString())
 }
 ---
 
@@ -113,7 +119,18 @@ if (OAuthResult && !OAuthResult.error) {
             id="github-signin"
             class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 dark:focus:ring-offset-gray-800 transition-colors mt-4"
           >
+            <Icon name="github" class="w-5 h-5 mr-2" />
             使用 Github 登录
+          </button>
+        </form>
+        <form action={actions.auth.signInWithGoogle} method="post">
+          <button
+            type="submit"
+            id="google-signin"
+            class="w-full flex justify-center py-2 px-4 border border-[#747775] rounded-md shadow-sm text-sm font-medium text-[#1F1F1F] bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 dark:focus:ring-offset-gray-800 transition-colors mt-4 hover:bg-[#F1F1F1]"
+          >
+            <Icon name="google" class="w-5 h-5 mr-2" />
+            使用 Google 登录
           </button>
         </form>
       </div>

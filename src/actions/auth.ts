@@ -104,4 +104,22 @@ export const auth = {
 			return data.url
 		},
 	}),
+	signInWithGoogle: defineAction({
+		accept: "form",
+		handler: async (notUse, { url }) => {
+			const { data, error } = await supabase.auth.signInWithOAuth({
+				provider: "google",
+				options: {
+					redirectTo: `${url.origin}/api/auth/callback`,
+				},
+			})
+			if (error) {
+				return new ActionError({
+					code: "BAD_REQUEST",
+					message: error.message,
+				})
+			}
+			return data.url
+		},
+	}),
 }
