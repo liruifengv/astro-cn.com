@@ -15,44 +15,51 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   site: siteInfo.url,
   output: 'server',
-  integrations: [tailwind({
-    // 禁用默认的基础样式
-    applyBaseStyles: false,
-  }), icon(), react(), expressiveCode({
-    themes: ["material-theme-darker"],
-    plugins: [{
-      name: "custom-style",
-      baseStyles: () => `
-            .frame.is-terminal:not(.has-title) .header {display: none;}
-            .frame .header {border-bottom: 2px solid #313131;}
-            .frame.is-terminal .header::before {display: none;}
-            .frame.is-terminal:not(.has-title) {
-              --button-spacing: 0.4rem;
-            }
-            .frame.is-terminal:not(.has-title) code, .frame.is-terminal:not(.has-title) pre {
-              border-radius: 4px
-            }
-            .frame.is-terminal .header {
-              justify-content: initial;
-              font-weight: initial;
-              padding-left: 1rem;
-              color: #fff;
-            }
-            `,
-      hooks: {}
-    }],
-    useThemedScrollbars: false,
-    useThemedSelectionColors: false,
-    styleOverrides: {
-      uiLineHeight: "inherit",
-      codeFontSize: "0.875rem",
-      codeLineHeight: "1.25rem",
-      borderRadius: "4px",
-      borderWidth: "0px",
-      codePaddingInline: "1rem",
-      codeFontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;'
-    }
-  }), sitemap(), mdx()],
+  integrations: [
+    tailwind({
+      // 禁用默认的基础样式
+      applyBaseStyles: false,
+    }),
+    icon(),
+    react(),
+    sitemap(),
+    mdx(),
+    expressiveCode({
+      themes: ["material-theme-darker"],
+      plugins: [{
+        name: "custom-style",
+        baseStyles: () => `
+              .frame.is-terminal:not(.has-title) .header {display: none;}
+              .frame .header {border-bottom: 2px solid #313131;}
+              .frame.is-terminal .header::before {display: none;}
+              .frame.is-terminal:not(.has-title) {
+                --button-spacing: 0.4rem;
+              }
+              .frame.is-terminal:not(.has-title) code, .frame.is-terminal:not(.has-title) pre {
+                border-radius: 4px
+              }
+              .frame.is-terminal .header {
+                justify-content: initial;
+                font-weight: initial;
+                padding-left: 1rem;
+                color: #fff;
+              }
+              `,
+        hooks: {}
+      }],
+      useThemedScrollbars: false,
+      useThemedSelectionColors: false,
+      styleOverrides: {
+        uiLineHeight: "inherit",
+        codeFontSize: "0.875rem",
+        codeLineHeight: "1.25rem",
+        borderRadius: "4px",
+        borderWidth: "0px",
+        codePaddingInline: "1rem",
+        codeFontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;'
+      }
+    })
+  ],
   adapter: cloudflare({
     imageService: 'cloudflare',
     platformProxy: {
