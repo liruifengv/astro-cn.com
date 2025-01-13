@@ -16,12 +16,12 @@ const { ...head } = Astro.props;
 <!doctype html>
 <html
   lang="zh-CN"
-  class:list={["overflow-x-hidden break-words ", Astro.props.class]}
+  class:list={["overflow-x-hidden break-words bg-gray-50 dark:bg-gray-900", Astro.props.class]}
 >
   <head>
     <BaseHead {...head} />
   </head>
-  <body class="flex min-h-screen max-w-screen flex-col overflow-x-hidden bg-white dark:bg-gray-900">
+  <body class="flex min-h-screen max-w-screen flex-col overflow-x-hidden">
     <SkipLink />
       <Header />
       <main id="main" class="relative z-10 flex flex-1 flex-col w-full mt-16 items-center">
