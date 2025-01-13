@@ -1,0 +1,46 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<theme-toggle>
+	<button>
+		<span class="sr-only">Dark theme</span>
+		<Icon name="ri:sun-fill" size={30} class="dark:block hidden"/>
+		<Icon name="ri:moon-clear-fill" size={30} class="block dark:hidden"/>
+	</button>
+</theme-toggle>
+
+<style>
+</style>
+
+<script>
+	class ThemeToggle extends HTMLElement {
+		constructor() {
+			super();
+			const button = this.querySelector('button')!;
+			/** Set the theme to dark/light mode. */
+			const setTheme = (dark: boolean) => {
+				document.documentElement.classList[dark ? 'add' : 'remove']('dark');
+				button.setAttribute('aria-pressed', String(dark));
+
+        // set html attribute data-theme
+        document.documentElement.setAttribute(
+          'data-theme',
+          dark ? 'dark' : 'light'
+        )
+        localStorage.setItem('theme', dark ? 'dark' : 'light')
+			};
+
+			// Toggle the theme when a user clicks the button.
+			button.addEventListener('click', () => setTheme(!this.isDark()));
+
+			// Initialize button state to reflect current theme.
+			setTheme(this.isDark());
+		}
+
+		isDark() {
+			return document.documentElement.classList.contains('dark');
+		}
+	}
+	customElements.define('theme-toggle', ThemeToggle);
+</script>

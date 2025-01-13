@@ -17,22 +17,23 @@ if (OAuthResult && !OAuthResult.error) {
 ---
 
 <Layout title="登录">
-  <main class="min-h-[calc(100vh-8rem)] w-full bg-gray-50 py-36 px-4 sm:px-6 lg:px-8">
+  <main class="w-full bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-md mx-auto">
-      <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-        <h1 class="text-center text-3xl font-extrabold text-gray-900 mb-8">
+      <div class="bg-white dark:bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <h1 class="text-center text-3xl font-extrabold text-gray-900 dark:text-white mb-8">
           登录账号
         </h1>
         
-        <p class="text-center text-sm text-gray-600 mt-2 mb-8">
+        <p class="text-center text-sm text-gray-600 dark:text-gray-400 mt-2 mb-8">
           新用户? 
-          <a href="/register" class="font-medium text-indigo-600 hover:text-indigo-500 transition-colors">
+          <a href="/register" class="font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors">
             创建账号
           </a>
         </p>
+
         <form action={actions.auth.signin} method="post" class="space-y-6">
           <div>
-            <label for="email" class="block text-sm font-medium text-gray-700">
+            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
               邮箱
             </label>
             <div class="mt-1">
@@ -41,14 +42,14 @@ if (OAuthResult && !OAuthResult.error) {
                 name="email" 
                 id="email"
                 required
-                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                class="appearance-none block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white sm:text-sm"
               />
             </div>
-            {inputErrors.email && <p id="error1" class="text-red-500 text-sm">{inputErrors.email.join(',')}</p>}
+            {inputErrors.email && <p id="error1" class="text-red-500 dark:text-red-400 text-sm">{inputErrors.email.join(',')}</p>}
           </div>
 
           <div>
-            <label for="password" class="block text-sm font-medium text-gray-700">
+            <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
               密码
             </label>
             <div class="mt-1">
@@ -57,27 +58,30 @@ if (OAuthResult && !OAuthResult.error) {
                 name="password" 
                 id="password"
                 required
-                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                class="appearance-none block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white sm:text-sm"
               />
             </div>
-            {inputErrors.password && <p id="error1" class="text-red-500 text-sm">{inputErrors.password.join(',')}</p>}
+            {inputErrors.password && <p id="error1" class="text-red-500 dark:text-red-400 text-sm">{inputErrors.password.join(',')}</p>}
           </div>
-          {actionError && <p id="error3" class="text-red-500 text-sm">{actionError}</p>}
+
+          {actionError && <p id="error3" class="text-red-500 dark:text-red-400 text-sm">{actionError}</p>}
+
           <button 
             type="submit"
-            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800 transition-colors"
           >
             登录
           </button>
         </form>
+
         <form action={actions.auth.signInWithGithub} method="post">
           <button 
-          type="submit"
-          id="github-signin"
-          class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 transition-colors mt-4"
-        >
-          使用 Github 登录
-        </button>
+            type="submit"
+            id="github-signin"
+            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 dark:focus:ring-offset-gray-800 transition-colors mt-4"
+          >
+            使用 Github 登录
+          </button>
         </form>
       </div>
     </div>

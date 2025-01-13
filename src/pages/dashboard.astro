@@ -10,9 +10,11 @@ if (result && !result.error) {
 }
 ---
 <Layout title="控制台">
-  <h1>欢迎 {email}</h1>
-  <p>我们很高兴在这里见到你</p>
-  <form action={actions.auth.signout} method="post">
-    <button type="submit">退出登录</button>
-  </form>
+  <div class="text-dark dark:text-white">
+    <h1>欢迎 {email}</h1>
+    <p>我们很高兴在这里见到你</p>
+    <form action={actions.auth.signout} method="post">
+      <button type="submit">退出登录</button>
+    </form>
+  </div>
 </Layout>

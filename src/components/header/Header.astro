@@ -1,0 +1,27 @@
+---
+import siteInfo from "@/data/site-info"
+import { Icon } from 'astro-icon/components'
+import ThemeToggle from '../ThemeToggle.astro';
+---
+
+<header
+  id="header"
+  class:list={[
+    "absolute hidden md:block top-0 z-50 w-full dark:text-white dark:bg-gray-900 bg-white text-gray-800 bg-transparent shadow-none",
+  ]}
+>
+  <nav
+    aria-label="Primary"
+    class="max-w-screen-xl px-4 2xl:px-0 box-border w-full mx-auto flex h-16 items-center justify-between"
+  >
+    <a href="/" data-astro-prefetch title="首页" class="flex items-center" data-home-link>
+      <span class="sr-only">Logo</span>
+      <Icon name="logo" class="w-8 h-8" />
+      <span class="ml-2 text-lg font-bold text-gray-800 dark:text-white">
+        {siteInfo.name}
+      </span>
+    </a>
+
+    <ThemeToggle />
+  </nav>
+</header>

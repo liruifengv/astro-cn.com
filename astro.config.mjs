@@ -1,6 +1,7 @@
 import { defineConfig, envField  } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import cloudflare from '@astrojs/cloudflare';
+import icon from "astro-icon";
 const site = 'https://astro-cn.com/';
 
 // https://astro.build/config
@@ -10,7 +11,7 @@ export default defineConfig({
   integrations: [tailwind({
     // 禁用默认的基础样式
     applyBaseStyles: false,
-  })],
+  }), icon()],
   adapter: cloudflare({
     imageService: 'cloudflare',
     platformProxy: {
