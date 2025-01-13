@@ -1,3 +1,4 @@
+import { supabase } from "@/lib/supabase";
 import { ActionError, defineAction } from "astro:actions";
 import { z } from "astro:schema";
 
@@ -10,8 +11,8 @@ export const auth = {
 				message: "密码至少8位",
 			}),
 		}),
-		handler: async ({ email, password }, { locals }) => {
-			const { error } = await locals.supabase.auth.signUp({
+		handler: async ({ email, password }) => {
+			const { error } = await supabase.auth.signUp({
 				email,
 				password,
 			});
@@ -33,8 +34,8 @@ export const auth = {
 			email: z.string().email(),
 			password: z.string(),
 		}),
-		handler: async ({ email, password }, { cookies, locals }) => {
-			const { data, error } = await locals.supabase.auth.signInWithPassword({
+		handler: async ({ email, password }, { cookies }) => {
+			const { data, error } = await supabase.auth.signInWithPassword({
 				email,
 				password,
 			});
@@ -64,16 +65,16 @@ export const auth = {
 	}),
 	signout: defineAction({
 		accept: "form",
-		handler: async ({}, { cookies, locals }) => {
-			await locals.supabase.auth.signOut();
+		handler: async ({}, { cookies }) => {
+			await supabase.auth.signOut();
 			cookies.delete("sb-access-token", { path: "/" });
 			cookies.delete("sb-refresh-token", { path: "/" });
 			return;
 		},
 	}),
 	get_user: defineAction({
-		handler: async ({}, { locals }) => {
-			const { data, error } = await locals.supabase.auth.getUser();
+		handler: async () => {
+			const { data, error } = await supabase.auth.getUser();
 			if (error) {
 				console.error("获取用户信息失败", error);
 				throw new ActionError({
@@ -86,8 +87,8 @@ export const auth = {
 	}),
   signInWithGithub: defineAction({
     accept: "form",
-    handler: async ({}, { url, locals }) => {
-      const { data, error } = await locals.supabase.auth.signInWithOAuth({
+    handler: async ({}, { url }) => {
+      const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "github",
         options: {
           redirectTo: `${url.origin}/api/auth/callback`

@@ -1,22 +1,31 @@
-// import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 
-// export const supabase = createClient(
-// 	import.meta.env.SUPABASE_URL,
-// 	import.meta.env.SUPABASE_ANON_KEY,
-// 	{
-// 		auth: {
-// 			flowType: "pkce",
-// 		},
-// 	},
-// );
+import {
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY,
+  SUPABASE_ROLE_KEY
+ } from 'astro:env/server';
 
-// export const supabaseAdmin = createClient(
-// 	import.meta.env.SUPABASE_URL,
-// 	import.meta.env.SUPABASE_ROLE_KEY,
-// 	{
-// 		auth: {
-// 			autoRefreshToken: false,
-// 			persistSession: false,
-// 		},
-// 	},
-// );
+console.log("SUPABASE_URL", SUPABASE_URL);
+console.log("SUPABASE_ANON_KEY", SUPABASE_ANON_KEY);
+
+export const supabase = createClient(
+	SUPABASE_URL,
+	SUPABASE_ANON_KEY,
+	{
+		auth: {
+			flowType: "pkce",
+		},
+	},
+);
+
+export const supabaseAdmin = createClient(
+	SUPABASE_URL,
+	SUPABASE_ROLE_KEY,
+	{
+		auth: {
+			autoRefreshToken: false,
+			persistSession: false,
+		},
+	},
+);
