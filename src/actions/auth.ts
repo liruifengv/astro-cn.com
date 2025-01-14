@@ -18,7 +18,7 @@ export const auth = {
 			})
 
 			if (error) {
-				console.error("注册失败", error)
+        console.error(`注册失败 ${error.name}: ${error.message}`)
 				throw new ActionError({
 					code: "BAD_REQUEST",
 					message: error.message,
@@ -41,7 +41,7 @@ export const auth = {
 			})
 
 			if (error) {
-				console.error("登录失败", error)
+				console.error(`登录失败 ${error.name}: ${error.message}`)
 				throw new ActionError({
 					code: "BAD_REQUEST",
 					message: error.message,
@@ -73,16 +73,15 @@ export const auth = {
 		},
 	}),
 	get_user: defineAction({
-		handler: async () => {
+		handler: async (notUse, context) => {
 			const {
 				data: { user },
 				error,
 			} = await supabase.auth.getUser()
 			if (error) {
-				console.error("获取用户信息失败", error)
 				throw new ActionError({
-					code: "BAD_REQUEST",
-					message: error.message,
+					code: "UNAUTHORIZED",
+					message: `${error.name}: ${error.message}`,
 				})
 			}
 
@@ -94,18 +93,16 @@ export const auth = {
 				.single()
 
 			if (profileError) {
-				console.error("获取用户信息失败", profileError)
 				throw new ActionError({
-					code: "BAD_REQUEST",
-					message: profileError.message,
+					code: "INTERNAL_SERVER_ERROR",
+					message: `${profileError.name}: ${profileError.message}`,
 				})
 			}
 
 			if (data.is_banned) {
-				console.error("当前用户已被封禁。")
 				throw new ActionError({
 					code: "FORBIDDEN",
-					message: "您已被封禁",
+					message: "UserHasBeenBanned: 您已被封禁",
 				})
 			}
 

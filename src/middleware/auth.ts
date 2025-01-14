@@ -7,7 +7,7 @@ const protectedRoutes = ["/", "/dashboard"]
 const redirectRoutes = ["/signin", "/register"]
 
 export default defineMiddleware(
-	async ({ locals, url, cookies, redirect, session, callAction }, next) => {
+	async ({ locals, url, cookies, redirect, rewrite, callAction }, next) => {
 		const pathname = url.pathname.replace(/\/$/, "") || "/"
 		if (protectedRoutes.includes(pathname)) {
 			const { accessToken, refreshToken } = getTokens(cookies)
@@ -35,16 +35,19 @@ export default defineMiddleware(
 				{},
 			)
 			if (getUserError) {
+				console.error(`获取用户信息失败 【${getUserError.code}】${getUserError.message}`)
 				if (getUserError.code === "FORBIDDEN") {
 					return redirect("/banned")
 				}
 
-				return redirect("/signin")
+        if (getUserError.code === "UNAUTHORIZED") {
+          return redirect("/signin")
+        }
+
+				return rewrite("/500")
 			}
 
 			locals.user = user
-
-			console.log("User Info:", user)
 		}
 
 		if (redirectRoutes.includes(pathname)) {
