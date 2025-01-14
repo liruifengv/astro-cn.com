@@ -6,7 +6,7 @@ const { data } = await Astro.callAction(actions.auth.get_user, {})
 ---
 
 <Image
-  src={data?.user?.user_metadata?.avatar_url}
+  src={data?.avatar!}
   width={36}
   height={36}
   alt="avatar"

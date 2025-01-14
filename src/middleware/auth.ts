@@ -7,7 +7,7 @@ const protectedRoutes = ["/", "/dashboard"]
 const redirectRoutes = ["/signin", "/register"]
 
 export default defineMiddleware(
-	async ({ locals, url, cookies, redirect, session }, next) => {
+	async ({ locals, url, cookies, redirect, session, callAction }, next) => {
 		const pathname = url.pathname.replace(/\/$/, "") || "/"
 		if (protectedRoutes.includes(pathname)) {
 			const { accessToken, refreshToken } = getTokens(cookies)
@@ -30,8 +30,10 @@ export default defineMiddleware(
 			const refresh_token = data.session?.refresh_token as string
 
 			setTokens(cookies, access_token, refresh_token)
-			const { data: user, error: getUserError } = await actions.auth.get_user()
-
+			const { data: user, error: getUserError } = await callAction(
+				actions.auth.get_user,
+				{},
+			)
 			if (getUserError) {
 				if (getUserError.code === "FORBIDDEN") {
 					return redirect("/banned")
@@ -41,6 +43,8 @@ export default defineMiddleware(
 			}
 
 			locals.user = user
+
+			console.log("User Info:", user)
 		}
 
 		if (redirectRoutes.includes(pathname)) {
