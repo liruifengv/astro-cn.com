@@ -74,7 +74,10 @@ export const auth = {
 	}),
 	get_user: defineAction({
 		handler: async () => {
-			const { data, error } = await supabase.auth.getUser()
+			const {
+				data: { user },
+				error,
+			} = await supabase.auth.getUser()
 			if (error) {
 				console.error("获取用户信息失败", error)
 				throw new ActionError({
@@ -82,7 +85,65 @@ export const auth = {
 					message: error.message,
 				})
 			}
-			return data
+
+			const { data, error: profileError } = await supabase
+				.from("sys_users")
+				.select("*, op_users(*)")
+				// biome-ignore lint/style/noNonNullAssertion: <explanation>
+				.eq("id", user!.id)
+				.single()
+
+			if (profileError) {
+				console.error("获取用户信息失败", profileError)
+				throw new ActionError({
+					code: "BAD_REQUEST",
+					message: profileError.message,
+				})
+			}
+
+			if (data.is_banned) {
+				console.error("当前用户已被封禁。")
+				throw new ActionError({
+					code: "FORBIDDEN",
+					message: "您已被封禁",
+				})
+			}
+
+			const op = data?.op_users
+
+			if (op && !op.is_banned) {
+				return {
+					// biome-ignore lint/style/noNonNullAssertion: <explanation>
+					id: user!.id,
+					email: data.email,
+					name: data.name,
+					avatar: data.avatar,
+					is_admin: true,
+					is_super_admin: op.is_super_admin,
+					is_owner: op.is_owner,
+					created_at: data.created_at,
+					updated_at: data.updated_at,
+					updated_by: data.updated_by,
+					is_banned: data.is_banned,
+					banned_reason: data.banned_reason,
+				}
+			}
+
+			return {
+				// biome-ignore lint/style/noNonNullAssertion: <explanation>
+				id: user!.id,
+				email: data.email,
+				name: data.name,
+				avatar: data.avatar,
+				is_admin: false,
+				is_super_admin: false,
+				is_owner: false,
+				created_at: data.created_at,
+				updated_at: data.updated_at,
+				updated_by: data.updated_by,
+				is_banned: data.is_banned,
+				banned_reason: data.banned_reason,
+			}
 		},
 	}),
 	signInWithGithub: defineAction({

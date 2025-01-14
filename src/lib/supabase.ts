@@ -1,3 +1,4 @@
+import type { Database } from "@/types/database.types"
 import { createClient } from "@supabase/supabase-js"
 
 import {
@@ -6,15 +7,23 @@ import {
 	SUPABASE_URL,
 } from "astro:env/server"
 
-export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-	auth: {
-		flowType: "pkce",
+export const supabase = createClient<Database>(
+	SUPABASE_URL,
+	SUPABASE_ANON_KEY,
+	{
+		auth: {
+			flowType: "pkce",
+		},
 	},
-})
+)
 
-export const supabaseAdmin = createClient(SUPABASE_URL, SUPABASE_ROLE_KEY, {
-	auth: {
-		autoRefreshToken: false,
-		persistSession: false,
+export const supabaseAdmin = createClient<Database>(
+	SUPABASE_URL,
+	SUPABASE_ROLE_KEY,
+	{
+		auth: {
+			autoRefreshToken: false,
+			persistSession: false,
+		},
 	},
-})
+)

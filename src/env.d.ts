@@ -2,7 +2,7 @@
 /// <reference types="astro/client" />
 
 type Runtime = import("@astrojs/cloudflare").Runtime<Env>
-import type { User } from "@supabase/supabase-js"
+import type { Database } from "@/types/database.types"
 
 interface ImportMetaEnv {
 	readonly SUPABASE_URL: string
@@ -17,7 +17,8 @@ interface ImportMeta {
 declare global {
 	declare namespace App {
 		interface Locals extends Runtime {
-			user: User | null
+			user: Database["public"]["Tables"]["sys_users"]["Row"] &
+				Database["public"]["Tables"]["op_users"]["Row"]
 		}
 	}
 }

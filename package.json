@@ -39,6 +39,7 @@
     "@iconify-json/ri": "^1.2.5",
     "@types/react": "^19.0.6",
     "@types/react-dom": "^19.0.3",
-    "smartypants": "^0.2.2"
+    "smartypants": "^0.2.2",
+    "supabase": ">=1.8.1"
   }
 }
