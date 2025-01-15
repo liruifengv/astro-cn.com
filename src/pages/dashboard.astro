@@ -8,12 +8,33 @@ const result = Astro.getActionResult(actions.auth.signout)
 if (result && !result.error) {
   return Astro.redirect("/signin")
 }
+
+const { data, error } = await Astro.callAction(actions.users.getUserList, {
+  page: 1,
+  pageSize: 10,
+})
+
+if (error) {
+  console.error(error)
+}
 ---
 
 <Layout title="控制台">
   <div class="text-dark dark:text-white">
     <h1>欢迎 {email}</h1>
     <p>我们很高兴在这里见到你</p>
+
+    <h2>用户列表 {data?.total}</h2>
+    <ul>
+      {
+        data?.users?.map((user) => (
+          <li>
+            {user.email} - {user.name}
+          </li>
+        ))
+      }
+    </ul>
+
     <form action={actions.auth.signout} method="post">
       <button type="submit">退出登录</button>
     </form>

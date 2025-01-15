@@ -1,6 +1,5 @@
 import { ActionError, defineAction } from "astro:actions"
 import { z } from "astro:schema"
-import { supabase } from "@/lib/supabase"
 
 export const auth = {
 	register: defineAction({
@@ -11,14 +10,14 @@ export const auth = {
 				message: "密码至少8位",
 			}),
 		}),
-		handler: async ({ email, password }) => {
-			const { error } = await supabase.auth.signUp({
+		handler: async ({ email, password }, { locals }) => {
+			const { error } = await locals.supabase.auth.signUp({
 				email,
 				password,
 			})
 
 			if (error) {
-        console.error(`注册失败 ${error.name}: ${error.message}`)
+				console.error(`注册失败 ${error.name}: ${error.message}`)
 				throw new ActionError({
 					code: "BAD_REQUEST",
 					message: error.message,
@@ -34,8 +33,8 @@ export const auth = {
 			email: z.string().email(),
 			password: z.string(),
 		}),
-		handler: async ({ email, password }, { cookies }) => {
-			const { data, error } = await supabase.auth.signInWithPassword({
+		handler: async ({ email, password }, { locals }) => {
+			const { data, error } = await locals.supabase.auth.signInWithPassword({
 				email,
 				password,
 			})
@@ -47,37 +46,22 @@ export const auth = {
 					message: error.message,
 				})
 			}
-
-			const { access_token, refresh_token } = data.session
-			cookies.set("sb-access-token", access_token, {
-				sameSite: "strict",
-				path: "/",
-				secure: true,
-			})
-			cookies.set("sb-refresh-token", refresh_token, {
-				sameSite: "strict",
-				path: "/",
-				secure: true,
-			})
-
-			return
+			return data
 		},
 	}),
 	signout: defineAction({
 		accept: "form",
-		handler: async (notUse, { cookies }) => {
-			await supabase.auth.signOut()
-			cookies.delete("sb-access-token", { path: "/" })
-			cookies.delete("sb-refresh-token", { path: "/" })
+		handler: async (notUse, { locals }) => {
+			await locals.supabase.auth.signOut()
 			return
 		},
 	}),
-	get_user: defineAction({
-		handler: async (notUse, context) => {
+	getUser: defineAction({
+		handler: async (notUse, { locals }) => {
 			const {
 				data: { user },
 				error,
-			} = await supabase.auth.getUser()
+			} = await locals.supabase.auth.getUser()
 			if (error) {
 				throw new ActionError({
 					code: "UNAUTHORIZED",
@@ -85,7 +69,7 @@ export const auth = {
 				})
 			}
 
-			const { data, error: profileError } = await supabase
+			const { data, error: profileError } = await locals.supabase
 				.from("sys_users")
 				.select("*, op_users(*)")
 				// biome-ignore lint/style/noNonNullAssertion: <explanation>
@@ -145,8 +129,8 @@ export const auth = {
 	}),
 	signInWithGithub: defineAction({
 		accept: "form",
-		handler: async (notUse, { url }) => {
-			const { data, error } = await supabase.auth.signInWithOAuth({
+		handler: async (notUse, { url, locals }) => {
+			const { data, error } = await locals.supabase.auth.signInWithOAuth({
 				provider: "github",
 				options: {
 					redirectTo: `${url.origin}/api/auth/callback`,
@@ -164,8 +148,8 @@ export const auth = {
 	}),
 	signInWithGoogle: defineAction({
 		accept: "form",
-		handler: async (notUse, { url }) => {
-			const { data, error } = await supabase.auth.signInWithOAuth({
+		handler: async (notUse, { url, locals }) => {
+			const { data, error } = await locals.supabase.auth.signInWithOAuth({
 				provider: "google",
 				options: {
 					redirectTo: `${url.origin}/api/auth/callback`,

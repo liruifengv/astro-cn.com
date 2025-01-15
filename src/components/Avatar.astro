@@ -2,7 +2,7 @@
 import { Image } from "astro:assets"
 import { actions } from "astro:actions"
 
-const { data: user } = await Astro.callAction(actions.auth.get_user, {})
+const { data: user } = await Astro.callAction(actions.auth.getUser, {})
 ---
 
 {
