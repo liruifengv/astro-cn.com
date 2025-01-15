@@ -1,50 +1,46 @@
 ---
 interface Props {
-	href?: string | undefined;
+  href?: string | undefined
 }
-const { href } = Astro.props;
-const El = href ? "a" : "span";
+const { href } = Astro.props
+const El = href ? "a" : "span"
 ---
 
-<li class="not-content sl-flex">
-	<El class="media-card sl-flex" {href} target="_blank">
-		<div class="media"><slot name="media" /></div>
-		<slot />
-	</El>
+<li class="not-content flex">
+  <El class="media-card" {href} target="_blank">
+    <div class="media"><slot name="media" /></div>
+    <slot />
+  </El>
 </li>
 
 <style>
-	.media-card {
-		flex-direction: column;
-		border: 1px solid var(--sl-color-gray-5);
-		border-radius: 0.5rem;
-		overflow: hidden;
-		text-decoration: none;
-		box-shadow: var(--sl-shadow-sm);
-		width: 100%;
-	}
-	
-	.media-card:hover {
-		transition-timing-function: cubic-bezier(0,0,.2,1);
-		transform: scale(1.03);
-		transition: transform 0.3s ease;
-	}
+  .media-card {
+    flex-direction: column;
+    border: 1px solid #c2c2c2;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow:
+      0px 1px 1px hsla(0, 0%, 0%, 0.06),
+      0px 2px 1px hsla(0, 0%, 0%, 0.06);
+    width: 100%;
+  }
 
-	.media {
-		border-bottom: 1px solid var(--sl-color-gray-5);
-	}
+  .media-card:hover {
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    transform: scale(1.03);
+    transition: transform 0.3s ease;
+  }
 
-	.media :global(img) {
-		display: block;
-		max-width: 100%;
-		height: auto;
-		aspect-ratio: 16 / 9;
-		object-fit: cover;
-	}
+  .media {
+    border-bottom: 1px solid #c2c2c2;
+  }
 
-	.media-card :global(.title) {
-		color: var(--sl-color-white);
-		font-weight: 600;
-		line-height: var(--sl-line-height-headings);
-	}
+  .media :global(img) {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
 </style>

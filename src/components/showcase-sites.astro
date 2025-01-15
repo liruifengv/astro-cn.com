@@ -1,10 +1,14 @@
 ---
-import FluidGrid from "./fluid-grid.astro";
-import Card from "./showcase-card.astro";
+import FluidGrid from "./fluid-grid.astro"
+import Card from "./showcase-card.astro"
 
-import { sites } from "../sites";
+import { sites } from "../sites"
 ---
 
 <FluidGrid minColumnWidth="18rem">
-  { sites.map(site => <Card title={site.title} href={site.href} thumbnail={site.thumbnail}></Card>) }
+  {
+    sites.map((site) => (
+      <Card title={site.title} href={site.href} thumbnail={site.thumbnail} />
+    ))
+  }
 </FluidGrid>

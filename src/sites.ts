@@ -1,9 +1,9 @@
 export interface Site {
-	title: string;
+	title: string
 
-	href: string;
+	href: string
 
-	thumbnail: string;
+	thumbnail: string
 }
 
 export const sites: Site[] = [
@@ -277,4 +277,4 @@ export const sites: Site[] = [
 		href: "https://neko-0xff-blog.deno.dev",
 		thumbnail: "neko-0xff-blog.deno.dev.png",
 	},
-];
+]

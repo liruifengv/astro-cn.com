@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets"
+import { actions } from "astro:actions"
+
+const { data: user } = await Astro.callAction(actions.auth.getUser, {})
+---
+
+{
+  user ? (
+    <Image
+      src={user.avatar!}
+      width={36}
+      height={36}
+      alt="avatar"
+      class="rounded-full cursor-pointer border border-gray-400 dark:border-gray-600"
+    />
+  ) : (
+    <a href="/signin" class="flex items-center" title="Login">
+      登录
+    </a>
+  )
+}

@@ -1,0 +1,19 @@
+<a
+  href="#main"
+  class="skip-link w-fit z-50 mt-3 px-4 py-2 inline-flex justify-center text-white font-semibold bg-astro-dark-800 border border-astro-dark-100/20 rounded-full"
+>
+  Skip to content
+</a>
+
+<style>
+  .skip-link {
+    left: calc(50% - 100px);
+    position: absolute;
+    transform: translateY(-200%);
+    transition: none;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+</style>

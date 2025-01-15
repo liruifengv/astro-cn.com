@@ -1,0 +1,29 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import { actions } from "astro:actions"
+
+const user = Astro.locals.user
+
+const result = Astro.getActionResult(actions.auth.signout)
+if (result && !result.error) {
+  return Astro.redirect("/signin")
+}
+---
+
+<Layout>
+  <div class="text-dark dark:text-white">
+    {user ? <p>你好，{user.name}</p> : <p>你好，游客</p>}
+
+    <p>我们很高兴在这里见到你</p>
+
+    <div>这里是首页，登录与否都可以看到</div>
+
+    {
+      user && (
+        <form action={actions.auth.signout} method="post">
+          <button type="submit">退出登录</button>
+        </form>
+      )
+    }
+  </div>
+</Layout>
