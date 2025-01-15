@@ -33,14 +33,7 @@ import Avatar from "../Avatar.astro"
     <div class="flex gap-5 items-center">
       <ThemeToggle />
       <Avatar server:defer>
-        <a
-          slot="fallback"
-          href="/signin"
-          class="flex items-center"
-          title="Login"
-        >
-          登录
-        </a>
+        <Icon name="ri:account-circle-fill" class="w-9 h-9" slot="fallback" />
       </Avatar>
     </div>
   </nav>
