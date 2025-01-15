@@ -40,8 +40,6 @@ export default defineMiddleware(
 		}
 
 		if (redirectRoutes.includes(pathname)) {
-			console.log("redirectRoutes")
-			console.log("locals.user", locals.user)
 			if (locals.user) {
 				return redirect("/")
 			}
