@@ -29,8 +29,8 @@ export const sites: Site[] = [
 	},
 	{
 		title: "Mikan's Home",
-		href: "https://blog.bangdream.moe",
-		thumbnail: "blog.bangdream.moe.png",
+		href: "https://blog.3kn.jp",
+		thumbnail: "blog.3kn.jp.png",
 	},
 	{
 		title: "yuhang.ch",
