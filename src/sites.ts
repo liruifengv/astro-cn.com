@@ -276,7 +276,8 @@ export const sites: Site[] = [
 		title: "Neko0xff Tech Blog",
 		href: "https://neko-0xff-blog.deno.dev",
 		thumbnail: "neko-0xff-blog.deno.dev.png",
-	},	{
+	},
+	{
 		title: "皮普的数字花园",
 		href: "https://pipuwong.com",
 		thumbnail: "pipuwong.com.png",
