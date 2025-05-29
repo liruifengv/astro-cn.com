@@ -282,4 +282,9 @@ export const sites: Site[] = [
 		href: "https://pipuwong.com",
 		thumbnail: "pipuwong.com.png",
 	},
+	{
+		title: "Panda Home",
+		href: "https://old-panda.com/",
+		thumbnail: "old-panda.com.png",
+	},
 ];
