@@ -268,6 +268,11 @@ export const sites: Site[] = [
 		thumbnail: "myani.org.png",
 	},
 	{
+		title: "Dify Helper-一键保存网页的插件",
+		href: "https://difyhelper.opacity.ink/",
+		thumbnail: "difyhelper.png"
+	},
+  {
 		title: "4Ark",
 		href: "https://4ark.me",
 		thumbnail: "4ark.me.png",
