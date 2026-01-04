@@ -29,10 +29,14 @@ export const sites: Site[] = [
 	},
 	{
 		title: "Mikan's Home",
-		href: "https://blog.bangdream.moe",
-		thumbnail: "blog.bangdream.moe.png",
+		href: "https://blog.3kn.jp",
+		thumbnail: "blog.3kn.jp.png",
 	},
-	{ title: "yuhang.ch", href: "https://yuhang.ch", thumbnail: "yuhang.ch.png" },
+	{
+		title: "yuhang.ch",
+		href: "https://yuhang.ch",
+		thumbnail: "yuhang.ch.png",
+	},
 	{
 		title: "blog.pakchoi.opscat.cn",
 		href: "https://blog.pakchoi.opscat.cn",
@@ -83,7 +87,11 @@ export const sites: Site[] = [
 		href: "https://super.town",
 		thumbnail: "super.town.png",
 	},
-	{ title: "mt.ci", href: "https://mt.ci", thumbnail: "mt.ci.png" },
+	{
+		title: "mt.ci",
+		href: "https://mt.ci",
+		thumbnail: "mt.ci.png",
+	},
 	{
 		title: "chi.miantiao.me",
 		href: "https://chi.miantiao.me",
@@ -263,5 +271,25 @@ export const sites: Site[] = [
 		title: "Dify Helper-一键保存网页的插件",
 		href: "https://difyhelper.opacity.ink/",
 		thumbnail: "difyhelper.png"
-	}
+	},
+  {
+		title: "4Ark",
+		href: "https://4ark.me",
+		thumbnail: "4ark.me.png",
+	},
+	{
+		title: "Neko0xff Tech Blog",
+		href: "https://neko-0xff-blog.deno.dev",
+		thumbnail: "neko-0xff-blog.deno.dev.png",
+	},
+	{
+		title: "皮普的数字花园",
+		href: "https://pipuwong.com",
+		thumbnail: "pipuwong.com.png",
+	},
+	{
+		title: "Panda Home",
+		href: "https://old-panda.com/",
+		thumbnail: "old-panda.com.png",
+	},
 ];
