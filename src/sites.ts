@@ -263,9 +263,9 @@ export const sites: Site[] = [
 		thumbnail: "ethanloo.cn.png",
 	},
 	{
-		title: "Ani Offical website",
-		href: "https://myani.org",
-		thumbnail: "myani.org.png",
+		title: "Animeko Offical website",
+		href: "https://animeko.org",
+		thumbnail: "animeko.org.png",
 	},
 	{
 		title: "Dify Helper-一键保存网页的插件",
