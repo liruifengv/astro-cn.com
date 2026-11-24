@@ -302,4 +302,9 @@ export const sites: Site[] = [
 		href: "https://www.idimi.com/",
 		thumbnail: "idimi.com.png",
 	},
+	{
+		title: "一条鱼的笔记本",
+		href: "https://oo.fish/",
+		thumbnail: "oo.fish.png",
+	},
 ];
